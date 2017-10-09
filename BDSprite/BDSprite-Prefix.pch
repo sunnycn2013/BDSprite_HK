@@ -1,0 +1,62 @@
+//
+//  BDSprite-Prefix.pch
+//  BDSprite
+//
+//  Created by Aufree on 9/21/15.
+//  Copyright (c) 2015 ESTGroup. All rights reserved.
+//
+
+#if DEBUG
+#define IS_IN_DEVELOPMENT TRUE
+#else
+#define IS_IN_DEVELOPMENT FALSE
+#endif
+
+#import "BaseApi.h"
+#import "APIConstant.h"
+#import "SecretConstant.h"
+#import "UIConstant.h"
+#import "DebugConstant.h"
+#import "UIView+Additions.h"
+#import "BaseHelper.h"
+
+#import <SDWebImage/UIImageView+WebCache.h>
+//#import "UIImageView+WebCache.h"
+#import <MJRefresh/MJRefresh.h>
+#import "PaginationEntity.h"
+#import "AFOAuth2Manager+Addtions.h"
+#import "GVUserDefaults+Properties.h"
+#import "CurrentUser.h"
+#import "NSString+Additions.h"
+#import "UIViewController+Custom.h"
+#import "JumpToOtherVCHandler.h"
+#import "SVProgressHUD.h"
+#import "MTAManager.h"
+
+#import <MJExtension/MJExtension.h>
+
+#import <YYKit/YYKit.h>
+#import <DateTools/NSDate+DateTools.h>
+
+#define DidTapStatusBar @"DidTapStatusBar"
+
+
+//获取屏幕宽高
+#define KScreenWidth ([[UIScreen mainScreen] bounds].size.width)
+#define KScreenHeight [[UIScreen mainScreen] bounds].size.height
+#define kScreen_Bounds [UIScreen mainScreen].bounds
+
+#define Iphone6ScaleWidth KScreenWidth/375.0
+#define Iphone6ScaleHeight KScreenHeight/667.0
+//根据ip6的屏幕来拉伸
+#define kIPhone6PScale(with) ((with)*(KScreenWidth/414.0f))
+
+//DEBUG  模式下打印日志,当前行
+#ifdef DEBUG
+#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define DLog(...)
+#endif
+
+
+#define BS_Device_Token @"BS_Device_Token"
