@@ -49,26 +49,15 @@
     NSString * str = @"%";
     double price = [_percent doubleValue];
     if (price > 0) {
-        str = [NSString stringWithFormat:@"+ %.2f%@",price * 100,str];
+        str = [NSString stringWithFormat:@"+ %.2f%@",price,str];
     }else{
-        str = [NSString stringWithFormat:@"%.2f%@",price * 100,str];
+        str = [NSString stringWithFormat:@"%.2f%@",price,str];
     }
     return str;
 }
 
 - (NSString *)jumpURL
 {
-    NSString * jumpExt = @"";
-    NSString * url = self.platform;
-    if ([self.platform rangeOfString:@"jubi"].length > 0) {
-        jumpExt = @"coin";
-    }else if ([self.platform rangeOfString:@"bter"].length > 0){
-        jumpExt = @"trade";
-    }
-    url = [NSString stringWithFormat:@"%@%@/%@",self.platform,jumpExt,self.englishname];
-    if ([url hasPrefix:@"http"]) {
-        return url;
-    }
-    return @"http://m.feixiaohao.com/currencies/ethereum/";
+    return _url;
 }
 @end

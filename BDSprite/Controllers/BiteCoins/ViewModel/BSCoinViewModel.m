@@ -19,19 +19,21 @@
     return self;
 }
 
-- (void)fetchFirstPageCoinInfo:(NSInteger)page completionHandler:(void(^)(id data, NSError * error))handler
+- (void)fetchFirstPageCoinInfo:(NSInteger)page params:(NSDictionary *)params completionHandler:(void(^)(id data, NSError * error))handler
 {
     [self.coins removeAllObjects];
-    [self fetchCoinInfoPage:1 completionHandler:handler];
+    [self fetchCoinInfoPage:1 params:params completionHandler:handler];
 }
 
-- (void)fetchCoinInfoPage:(NSInteger)page completionHandler:(void(^)(id data, NSError * error))handler
+- (void)fetchCoinInfoPage:(NSInteger)page params:(NSDictionary *)params completionHandler:(void(^)(id data, NSError * error))handler
 {
     __weak typeof(self) weakSelf = self;
     NSInteger count = (page == 1) ? 1 : 20; //20;
     NSString * start = [NSString stringWithFormat:@"%ld",(page-1) * count+1];
-    NSDictionary * params =  @{@"start" : start,@"count" : @"20"};
-    self.request.parameters = params;
+    NSDictionary * temParams = @{@"start" : start,@"count" : @"20"};
+    NSMutableDictionary * requestParams = [[NSMutableDictionary alloc] initWithDictionary:temParams];
+    [requestParams addEntriesFromDictionary:params];
+    self.request.parameters = [requestParams copy];
     [self.request getDataCompletionHandler:^(id data, NSError *error) {
         if (!error) {
             NSMutableArray * array = [NSMutableArray array];

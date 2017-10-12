@@ -16,8 +16,12 @@
 
 @property (nonatomic,strong) NSMutableArray * coins;
 
-- (void)fetchFirstPageCoinInfo:(NSInteger)page completionHandler:(void(^)(id data, NSError * error))handler;
+- (void)fetchFirstPageCoinInfo:(NSInteger)page params:(NSDictionary *)params completionHandler:(void(^)(id data, NSError * error))handler;
 
-- (void)fetchCoinInfoPage:(NSInteger)page completionHandler:(void(^)(id data, NSError * error))handler;
+- (void)fetchCoinInfoPage:(NSInteger)page params:(NSDictionary *)params completionHandler:(void(^)(id data, NSError * error))handler;
+
+//- (void)fetchFirstPageCoinInfo:(NSInteger)page completionHandler:(void(^)(id data, NSError * error))handler;
+//
+//- (void)fetchCoinInfoPage:(NSInteger)page completionHandler:(void(^)(id data, NSError * error))handler;
 
 @end

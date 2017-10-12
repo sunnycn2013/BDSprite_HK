@@ -25,6 +25,7 @@
 @property (nonatomic,strong) NSNumber * turnnumber;
 @property (nonatomic,strong) NSNumber * turnvolume;
 @property (nonatomic,strong) BSCoininfoBean * infoBean;
+@property (nonatomic,strong) NSString * url;
 
 @property (nonatomic,strong) NSString * timeStr;
 @property (nonatomic,strong) NSString * percentStr;

@@ -43,29 +43,32 @@
 {
     _topicInfo = topicInfo;
     
-    NSArray * imageURLs = @[@"http://ow00jnv2q.bkt.clouddn.com/distribution_chart.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/k_line.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/appstore.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/coincheck.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/bitfinex.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/setting.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/telegram.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/jaxx.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/poloniex.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/google_authenticator.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/neo.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/token_ico_price.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/imtoken.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/bittrex.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/liqui.png",
-                            @"http://ow00jnv2q.bkt.clouddn.com/etherdelta.png"];
-                            //16
-    NSInteger index = arc4random() % 16;
+//    NSArray * imageURLs = @[@"http://ow00jnv2q.bkt.clouddn.com/distribution_chart.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/k_line.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/appstore.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/coincheck.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/bitfinex.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/setting.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/telegram.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/jaxx.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/poloniex.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/google_authenticator.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/neo.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/token_ico_price.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/imtoken.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/bittrex.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/liqui.png",
+//                            @"http://ow00jnv2q.bkt.clouddn.com/etherdelta.png"];
+//                            //16
+    NSInteger index = arc4random() % 15;
     
 //    NSURL * imageURL = [NSURL URLWithString:self.topicInfo.imageurl];
-    NSURL * imageURL = [NSURL URLWithString:imageURLs[index]];
+//    NSURL * imageURL = [NSURL URLWithString:imageURLs[index]];
 
-    [_avatarImageView sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"bd_placeholder.jpg"]];
+//    [_avatarImageView sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"bd_placeholder.jpg"]];
+    NSString * imageName = [NSString stringWithFormat:@"%d",(int)index];
+    NSString * imageName2 = [NSString stringWithFormat:@"%@.jpeg",imageName];
+    [_avatarImageView setImage:[UIImage imageNamed:imageName2]];
     _topicTitleLabel.text = self.topicInfo.topicTitle;
     _topicInfoLabel.text = [NSString stringWithFormat:@"时间:%@", self.topicInfo.updatimeStr];
     NSNumber *repliesCount = self.topicInfo.topicRepliesCount;
