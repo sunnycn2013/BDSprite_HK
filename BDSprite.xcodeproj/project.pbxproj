@@ -125,6 +125,7 @@
 		B044EFA01F7763D100538FBF /* aa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B044EF9F1F7763D100538FBF /* aa.jpg */; };
 		B044EFA21F7763E700538FBF /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B044EFA11F7763E700538FBF /* icon.png */; };
 		B044EFA51F776B1500538FBF /* BSBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = B044EFA41F776B1500538FBF /* BSBottomView.m */; };
+		B05491FF1F933C0E00F9491A /* 0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B05491FE1F933C0E00F9491A /* 0.jpeg */; };
 		B07E12AE1F6199B40077BD5F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E12AD1F6199B40077BD5F /* UserNotifications.framework */; };
 		B07E12B11F62113A0077BD5F /* BSShowMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E12B01F62113A0077BD5F /* BSShowMessageViewController.m */; };
 		B0AF29A01F87C717007D2E80 /* BSHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AF299F1F87C717007D2E80 /* BSHeaderView.m */; };
@@ -416,6 +417,7 @@
 		B044EFA11F7763E700538FBF /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B044EFA31F776B1500538FBF /* BSBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBottomView.h; sourceTree = "<group>"; };
 		B044EFA41F776B1500538FBF /* BSBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSBottomView.m; sourceTree = "<group>"; };
+		B05491FE1F933C0E00F9491A /* 0.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpeg; sourceTree = "<group>"; };
 		B07E12AB1F6184060077BD5F /* SecretConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretConstant.h; sourceTree = "<group>"; };
 		B07E12AD1F6199B40077BD5F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		B07E12AF1F62113A0077BD5F /* BSShowMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSShowMessageViewController.h; sourceTree = "<group>"; };
@@ -1348,6 +1350,7 @@
 		C358DFF61F8F04A7008A1A8F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B05491FE1F933C0E00F9491A /* 0.jpeg */,
 				C358DFF71F8F04A7008A1A8F /* 1.jpeg */,
 				C358DFF81F8F04A7008A1A8F /* 10.jpeg */,
 				C358DFF91F8F04A7008A1A8F /* 11.jpeg */,
@@ -1782,6 +1785,7 @@
 				B044EF951F774A3400538FBF /* README.txt in Resources */,
 				C358E0131F8F04A8008A1A8F /* 8.jpeg in Resources */,
 				5652184E1BBA7F0000412E60 /* Passport.storyboard in Resources */,
+				B05491FF1F933C0E00F9491A /* 0.jpeg in Resources */,
 				C358E0121F8F04A8008A1A8F /* 7.jpeg in Resources */,
 				C358E00F1F8F04A8008A1A8F /* 4.jpeg in Resources */,
 				C358E0141F8F04A8008A1A8F /* 9.jpeg in Resources */,
@@ -1859,7 +1863,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C2AFAA07BFA1FE2CF78DD1A1 /* [CP] Check Pods Manifest.lock */ = {
@@ -1877,7 +1881,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D1949EB42CFF9A5F07C5F078 /* [CP] Copy Pods Resources */ = {

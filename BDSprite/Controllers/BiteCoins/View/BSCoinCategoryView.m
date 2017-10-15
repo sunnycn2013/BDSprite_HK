@@ -30,7 +30,7 @@
 
 - (void)initData
 {
-    NSArray * categorys = @[@"AUD",@"BRL",@"CAD", @"CHF", @"CLP", @"CNY", @"CZK",@"DKK", @"EUR", @"GBP", @"HKD", @"HUF", @"IDR", @"ILS",@"INR", @"JPY", @"KRW", @"MXN", @"MYR", @"NOK", @"NZD",@"PHP", @"PKR", @"PLN", @"RUB", @"SEK", @"SGD", @"THB",@"TRY", @"TWD", @"ZAR", @"BTC", @"USD",@"涨跌",@"市值"];
+    NSArray * categorys = @[@"涨跌",@"市值",@"自选"];
     
     NSMutableArray *array = [NSMutableArray arrayWithArray:categorys];
     //2.倒序的数组

@@ -1,10 +1,10 @@
 # Uncomment the next line to define a global platform for your project
  platform :ios, '8.0'
 
-require 'cocoapods-multithread-installpod'
+#require 'cocoapods-multithread-installpod'
 
 #ali_source 'icaibei-specs-mirror'
-ali_source 'alibaba-specs-mirror'
+#ali_source 'alibaba-specs-mirror'
 
 target 'BDSprite' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
@@ -26,7 +26,7 @@ target 'BDSprite' do
     pod 'GVUserDefaults'
     pod 'Masonry'
     pod 'SVProgressHUD', '2.0.3'
-    pod 'MJRefresh', '~> 3.1.12'
+    pod 'MJRefresh', '~> 3.1.14'
     pod 'UMengFeedback', '~> 2.3.4'
 
     pod 'QRCodeReaderViewController', '~> 4.0.2'

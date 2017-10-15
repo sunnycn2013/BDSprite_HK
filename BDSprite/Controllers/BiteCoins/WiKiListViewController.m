@@ -33,12 +33,17 @@
     
     self.tableView.mj_header = self.refreashHeader;
     self.tableView.mj_footer = self.refreashFooter;
-    self.tableView.frame = CGRectMake(0, 64+44, SCREEN_WIDTH, KScreenHeight);
     [self.tableView registerClass:[BSCoinCell class] forCellReuseIdentifier:@"BSCoinCell"];
     [self.view addSubview:self.tableView];
     [self fetchFirstPageDataSource];
     
     [self.view addSubview:self.categoryView];
+    
+    CGSize statusBarSize = [UIApplication sharedApplication].statusBarFrame.size;
+    CGFloat marginTop = statusBarSize.height + 44;
+    
+    self.categoryView.frame = CGRectMake(0, marginTop, KScreenWidth, 44);
+    self.tableView.frame = CGRectMake(0, _categoryView.bottom-54-10, SCREEN_WIDTH, KScreenHeight);
 }
 
 - (void)headerRefreshing {
@@ -143,6 +148,7 @@
         _categoryView = [[BSCoinCategoryView alloc] initWithFrame:CGRectMake(0, 64, KScreenWidth, 44)];
         _categoryView.userInteractionEnabled = YES;
         _categoryView.delegate = self;
+        _categoryView.backgroundColor = [UIColor whiteColor];
     }
     return _categoryView;
 }
