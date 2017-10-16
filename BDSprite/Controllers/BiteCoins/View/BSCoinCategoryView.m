@@ -74,23 +74,9 @@
 
 - (void)categoryItem:(BSCategoryItem *)categoryItem didSelected:(NSDictionary *)userInfo
 {
-    NSInteger index =categoryItem.tag - BSCoinCategoryViewTag;
-    //start=1&count=10000&symbol=BTC&sort=volume&desc=false
-
-    NSString * coinCategory = [self.data objectAtIndex:index];
-    NSMutableDictionary * infos = [NSMutableDictionary dictionary];
-    [infos setObject:coinCategory forKey:@"symbol"];
-    [infos setObject:@"false" forKey:@"desc"];
-    
-    if (index == 0) {
-        [infos setObject:@"BTC" forKey:@"symbol"];
-        [infos setObject:@"volume" forKey:@"sort"];
-    }else if (index == 1){
-        [infos setObject:@"BTC" forKey:@"symbol"];
-        [infos setObject:@"percent" forKey:@"sort"];
-    }
-    if([self.delegate respondsToSelector:@selector(coinCategoryView:userInfo:)]){
-        [self.delegate coinCategoryView:self userInfo:[infos copy]];
+    NSInteger index = categoryItem.tag - BSCoinCategoryViewTag;
+    if([self.delegate respondsToSelector:@selector(coinCategoryView:didTapedAtIndex:)]){
+        [self.delegate coinCategoryView:self didTapedAtIndex:index];
     }
     [self resetIndicatorView];
     [categoryItem setStyle:BSCategoryItemStyleSelected];

@@ -108,11 +108,4 @@
     }
     return _refreashFooter;
 }
-//- (MJRefreshFooter *)refreashFooter
-//{
-//    if (!_refreashFooter) {
-//        _refreashFooter = [MJRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefreshing)];
-//    }
-//    return _refreashFooter;
-//}
 @end

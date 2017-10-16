@@ -66,9 +66,11 @@ static CGFloat topicListCellAvatarHeight = 18;
     _coinInfo = coinInfo;
     _platformLabel.text = [NSString stringWithFormat:@"%@, %@",_coinInfo.platform,_coinInfo.chinesename];
     _coinNameLabel.text = [NSString stringWithFormat:@"%@ - %@",_coinInfo.chinesename,_coinInfo.englishname];
-    _currentPriceLabel.text = [NSString stringWithFormat:@"价格:%@",_coinInfo.price];
+    _currentPriceLabel.text = [NSString stringWithFormat:@"价格$: %@",_coinInfo.price];
     _percentLabel.text = _coinInfo.percentStr;
-    
+//    _tradingNumLabel.text = @"量(24h)6190456.90万";
+    _tradingNumLabel.text = [NSString stringWithFormat:@"量(24h)$: %.2f",[_coinInfo.turnvolume doubleValue]];
+
     if ([_coinInfo.percent doubleValue] > 0) {
         _percentLabel.backgroundColor = [UIColor colorWithHexString:@"#CF021B"];
     }else{

@@ -11,7 +11,7 @@
 @class BSCoinCategoryView;
 @protocol BSCoinCategoryViewDelegate<NSObject>
 
-- (void)coinCategoryView:(BSCoinCategoryView *)view userInfo:(NSDictionary *)userInfo;
+- (void)coinCategoryView:(BSCoinCategoryView *)view didTapedAtIndex:(NSInteger)index;
 
 @end
 

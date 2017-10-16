@@ -31,12 +31,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUnreadCount:) name:UpdateNoticeCount object:nil];
     self.navigationItem.title = @"我的";
     [self setupCornerRadiusWithView:@[_avatarImageView, _unreadCountLabel]];
-    
-//    _headerView = [[BSHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
-//    _headerView.backgroundColor = [UIColor redColor];
-//    self.tableView.tableHeaderView = _headerView;
-
-//self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -45,24 +39,13 @@
     if ([[CurrentUser Instance] isLogin]) {
         [self updateMeView];
         [self setupUnreadCountLabel];
-    } else {
-//        LoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Passport"
-//                                                                  bundle:[NSBundle mainBundle]]
-//                                        instantiateViewControllerWithIdentifier:@"login"];
-//        loginVC.delegate = self;
-//        [self.navigationController pushViewController:loginVC animated:NO];
+    } else
+    {
     }
-//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-//    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-//    self.navigationController.navigationBar.translucent = YES;
-//    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 - (void)setupCornerRadiusWithView:(NSArray *)views {
