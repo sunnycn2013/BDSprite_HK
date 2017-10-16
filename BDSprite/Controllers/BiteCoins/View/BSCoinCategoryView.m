@@ -30,13 +30,10 @@
 
 - (void)initData
 {
-    NSArray * categorys = @[@"涨跌",@"市值",@"自选"];
-    
-    NSMutableArray *array = [NSMutableArray arrayWithArray:categorys];
+    NSArray * categorys = @[@"自选",@"市值",@"涨跌"];
     //2.倒序的数组
-    self.data = [[array reverseObjectEnumerator] allObjects];;
+    self.data = categorys;
     [self addSubview:self.scrollView];
-    [self reloadData];
 }
 
 - (void)reloadData
@@ -51,65 +48,67 @@
         item.tag = i + BSCoinCategoryViewTag;
         item.title = title;
         item.delegate = self;
+        item.backgroundColor = [UIColor purpleColor];
         [self.scrollView addSubview:item];
     }
     
-    self.scrollView.contentSize = CGSizeMake(width * self.data.count, height);
+    self.scrollView.contentSize = CGSizeMake(10, 44);
     BSCategoryItem * firstButton = (BSCategoryItem *)[self.scrollView viewWithTag:BSCoinCategoryViewTag + 0];
     if ([firstButton isKindOfClass:[BSCategoryItem class]]) {
         [firstButton setStyle:BSCategoryItemStyleSelected];
     }
+    NSLog(@"%@",self.scrollView.subviews);
 }
 
-- (void)resetIndicatorView
-{
-    NSArray * subViews = [self.scrollView subviews];
-    for (BSCategoryItem * item in subViews) {
-        if ([item isKindOfClass:[BSCategoryItem class]]) {
-            [item setStyle:BSCategoryItemStyleNormal];
-        }
-    }
-}
+//- (void)resetIndicatorView
+//{
+//    NSArray * subViews = [self.scrollView subviews];
+//    for (BSCategoryItem * item in subViews) {
+//        if ([item isKindOfClass:[BSCategoryItem class]]) {
+//            [item setStyle:BSCategoryItemStyleNormal];
+//        }
+//    }
+//}
 #pragma mark - BSCategoryItemDelegate
 
-- (void)categoryItem:(BSCategoryItem *)categoryItem didSelected:(NSDictionary *)userInfo
-{
-    NSInteger index = categoryItem.tag - BSCoinCategoryViewTag;
-    if([self.delegate respondsToSelector:@selector(coinCategoryView:didTapedAtIndex:)]){
-        [self.delegate coinCategoryView:self didTapedAtIndex:index];
-    }
-    [self resetIndicatorView];
-    [categoryItem setStyle:BSCategoryItemStyleSelected];
-}
-
-#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    NSLog(@"sss");
-
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    NSLog(@"sss");
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    NSLog(@"aaa");
-
-}
+//- (void)categoryItem:(BSCategoryItem *)categoryItem didSelected:(NSDictionary *)userInfo
+//{
+//    NSInteger index = categoryItem.tag - BSCoinCategoryViewTag;
+//    if([self.delegate respondsToSelector:@selector(coinCategoryView:didTapedAtIndex:)]){
+//        [self.delegate coinCategoryView:self didTapedAtIndex:index];
+//    }
+//    [self resetIndicatorView];
+//    [categoryItem setStyle:BSCategoryItemStyleSelected];
+//}
+//
+//#pragma mark - UIScrollViewDelegate
+//
+//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+//{
+//    NSLog(@"sss");
+//
+//}
+//
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    NSLog(@"sss");
+//}
+//
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+//{
+//    NSLog(@"aaa");
+//
+//}
 #pragma mark -
 - (UIScrollView *)scrollView
 {
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 44)];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 440)];
         _scrollView.delegate = self;
         _scrollView.pagingEnabled = YES;
-        _scrollView.clipsToBounds = YES;
         _scrollView.userInteractionEnabled = YES;
         _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.backgroundColor = [UIColor clearColor];
     }
     return _scrollView;
 }

@@ -20,3 +20,29 @@ sort有两个值，一个是volume，根据市值排序，一个是percent根据
 desc两个值，true表示升序，false表示降序
 崔轩  22:02:56
 额，发错地方了，@可可 ，你看一下就行了
+
+
+/token/registertoken     //注册token
+{
+"token" : "","   //64
+"pid" : "",       //40
+"account" : "",
+}
+
+/token/addtag    //增加token
+{
+    "token" : "","
+    "pid" : "",
+    "account" : "",
+    "tagname" : "",
+    "device" : "ios/android"
+}
+
+/token/deltag    //删除token
+{
+"token" : "","
+"pid" : "",
+"account" : "",
+"tagname" : "",
+"device" : "ios/android"
+}

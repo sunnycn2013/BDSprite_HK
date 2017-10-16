@@ -36,8 +36,8 @@
     self.tableView.mj_header = self.refreashHeader;
     self.tableView.mj_footer = self.refreashFooter;
     [self.tableView registerClass:[BSTopicCell class] forCellReuseIdentifier:@"BSTopicCell"];
-//    [self.view addSubview:self.tableView];
-//    [self fetchFirstPageDataSource];
+    [self .view addSubview:self.tableView];
+    [self fetchFirstPageDataSource];
 }
 
 #pragma mark Check current user client token
