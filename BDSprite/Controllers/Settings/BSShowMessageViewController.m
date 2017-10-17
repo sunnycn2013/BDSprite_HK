@@ -36,7 +36,12 @@
     [_submitButton setTitle:@"提交" forState:UIControlStateNormal];
     [_submitButton addTarget:self action:@selector(submitMessage:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.submitButton];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString * str = [userDefaults objectForKey:BS_Device_Token] ? : @"aa";
+    textView.text = str;
 }
 
 - (void)didReceiveMemoryWarning {
