@@ -30,7 +30,6 @@
     self.loading = NO;
     self.tableView.mj_header = self.refreashHeader;
     self.tableView.mj_footer = self.refreashFooter;
-    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     [self.tableView registerClass:[BSWeiBoCell class] forCellReuseIdentifier:@"BSWeiBoCell"];
     [self.view addSubview:self.tableView];
     [self fetchFirstPageDataSource];

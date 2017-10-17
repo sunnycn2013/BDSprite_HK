@@ -61,6 +61,7 @@
         _bgButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _bgButton.frame = CGRectMake(0, 0, width, height);
         _bgButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        _bgButton.userInteractionEnabled = YES;
         [_bgButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [_bgButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }

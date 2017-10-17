@@ -16,7 +16,7 @@
 
 #import "BSTopicAPI.h"
 
-@interface EssentialListViewController () <UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+@interface EssentialListViewController () <UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,SFSafariViewControllerDelegate>
 
 @property (nonatomic, strong) BSTopicViewModel *topicViewModel;
 @property (nonatomic, strong) BSTopicModel *topicModel;
@@ -36,7 +36,7 @@
     self.tableView.mj_header = self.refreashHeader;
     self.tableView.mj_footer = self.refreashFooter;
     [self.tableView registerClass:[BSTopicCell class] forCellReuseIdentifier:@"BSTopicCell"];
-    [self .view addSubview:self.tableView];
+    [self.view addSubview:self.tableView];
     [self fetchFirstPageDataSource];
 }
 
@@ -124,9 +124,22 @@
 //    [JumpToOtherVCHandler jumpToWebVCWithUrlString:topic.topicContentUrl];
     
     TopicEntity *topic = [self.topicViewModel.topics objectAtIndex:indexPath.row];
-    [JumpToOtherVCHandler jumpToSWebVCWithTopic:topic];
+//    [JumpToOtherVCHandler jumpToSWebVCWithTopic:topic];
+    NSString * str = [topic.topicContentUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    SFSafariViewController *sfViewController = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:str]];
+    sfViewController.delegate = self;
+    [self presentViewController:sfViewController animated:YES completion:^{
+        //...
+    }];
 }
 
+// Done 按钮
+
+- (void)safariViewControllerDidFinish:(nonnull SFSafariViewController *)controller
+{
+    [controller dismissViewControllerAnimated:YES completion:nil];
+
+}
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     

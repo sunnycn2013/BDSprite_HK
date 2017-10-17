@@ -12,7 +12,9 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "BSCoinCategoryView.h"
 
-@interface WiKiListViewController ()<UITableViewDelegate,UITableViewDataSource,BSCoinCategoryViewDelegate>
+@interface WiKiListViewController ()<UITableViewDelegate,UITableViewDataSource,BSCoinCategoryViewDelegate>{
+    UIScrollView *_scrollView;
+}
 
 @property (nonatomic,strong)BSCoinViewModel * coinViewModel;
 @property (nonatomic,strong)BSCoinCategoryView * categoryView;
@@ -31,23 +33,18 @@
     self.pageIndex = 1;
     self.loading = NO;
     [self.view addSubview:self.categoryView];
-    [self.categoryView reloadData];
-
 
     self.tableView.mj_header = self.refreashHeader;
     self.tableView.mj_footer = self.refreashFooter;
     [self.tableView registerClass:[BSCoinCell class] forCellReuseIdentifier:@"BSCoinCell"];
-//    [self.view addSubview:self.tableView];
-    
-    
-//    CGSize statusBarSize = [UIApplication sharedApplication].statusBarFrame.size;
-//    CGFloat marginTop = statusBarSize.height + 44;
-    
-//    self.categoryView.frame = CGRectMake(0, marginTop, KScreenWidth, 44);
-//    self.tableView.frame = CGRectMake(0, _categoryView.bottom, SCREEN_WIDTH, KScreenHeight);
-    
-//    [self coinCategoryView:nil didTapedAtIndex:0];
+    [self.view addSubview:self.tableView];
+    [self coinCategoryView:nil didTapedAtIndex:0];
     [self fetchFirstPageDataSource];
+    
+    CGSize statusBarSize = [UIApplication sharedApplication].statusBarFrame.size;
+    CGFloat marginTop = statusBarSize.height + 44;
+    self.categoryView.frame = CGRectMake(0, marginTop, KScreenWidth, 44);
+    self.tableView.frame = CGRectMake(0, _categoryView.bottom, SCREEN_WIDTH, KScreenHeight);
 }
 
 - (void)headerRefreshing {
@@ -162,6 +159,7 @@
         _categoryView.userInteractionEnabled = YES;
         _categoryView.delegate = self;
         _categoryView.backgroundColor = [UIColor whiteColor];
+        [_categoryView reloadData];
     }
     return _categoryView;
 }

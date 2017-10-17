@@ -98,7 +98,6 @@
 }
 
 #pragma mark - Delegate - UITabBarControllerDelegate
-
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     CATransition *animation = [CATransition animation];
     [animation setType:kCATransitionFade];
@@ -106,7 +105,7 @@
     [animation setTimingFunction:[CAMediaTimingFunction functionWithName:
                                   kCAMediaTimingFunctionEaseIn]];
     [self.view.window.layer addAnimation:animation forKey:@"fadeTransition"];
-    
+
     return YES;
 }
 

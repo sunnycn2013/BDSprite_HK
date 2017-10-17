@@ -94,4 +94,9 @@
     loginVC.completeLoginBlock = completion;
     [self presentToOtherView:loginVC animated:YES completion:nil];
 }
+
+//+ (void)jumpToSFSafariWithUrlString:(NSString *)url {
+//{
+//   
+//}
 @end

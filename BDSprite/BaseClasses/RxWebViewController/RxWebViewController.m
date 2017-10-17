@@ -10,6 +10,7 @@
 
 #define boundsWidth self.view.bounds.size.width
 #define boundsHeight self.view.bounds.size.height
+
 @interface RxWebViewController ()<UIWebViewDelegate,UINavigationBarDelegate>
 
 //@property (strong, nonatomic) UIBarButtonItem* customBackBarItem;
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) UIProgressView *progressView;
 @property (strong, nonatomic) NSTimer *timer;
 @property (nonatomic) BOOL loading;
+@property (nonatomic) BOOL isFirstLoading;
 
 /**
  *  array that hold snapshots
@@ -71,7 +73,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
+    self.isFirstLoading = NO;
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
@@ -85,7 +87,9 @@
     [self.webView insertSubview:self.hostInfoLabel belowSubview:self.webView.scrollView];
     [self.view addSubview:self.progressView];
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:self.url]];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
+    [self.webView loadRequest:request];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -362,6 +366,25 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    if (!self.isFirstLoading) {
+        self.isFirstLoading = YES;
+//        [self loadHtml];
+    }
+}
+
+- (void)loadHtml
+{
+    NSURL *requestUrl = self.url;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10.0f];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (data) {
+            NSString * string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",string);
+            [_webView loadHTMLString:string baseURL:_url];
+        }
+    }];
+    [task resume];
 }
 
 #pragma mark - setters and getters

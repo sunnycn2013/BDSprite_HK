@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BSBaseViewController.h"
+#import <SafariServices/SafariServices.h>
 
 @interface EssentialListViewController : BSBaseViewController
 
