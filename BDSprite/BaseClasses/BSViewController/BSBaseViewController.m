@@ -21,9 +21,9 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     CGFloat version = [[UIDevice currentDevice].systemVersion doubleValue];
     if (version >= 11.0) {
-        if (@available(iOS 11.0, *)){
-            self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
+//        if (@available(iOS 11.0, *)){
+//            self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        }
     } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
