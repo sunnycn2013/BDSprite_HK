@@ -244,30 +244,6 @@
 
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    
-//    //将device token转换为字符串
-//    NSString *deviceTokenStr1 = [NSString stringWithFormat:@"%@",deviceToken];
-//    
-//    
-//    //modify the token, remove the  "<, >"
-//    NSLog(@"    deviceTokenStr  lentgh:  %d  ->%@", [deviceTokenStr1 length], [[deviceTokenStr1 substringWithRange:NSMakeRange(0, 72)] substringWithRange:NSMakeRange(1, 71)]);
-//    deviceTokenStr1 = [[deviceTokenStr1 substringWithRange:NSMakeRange(0, 72)] substringWithRange:NSMakeRange(1, 71)];
-//    
-//    NSLog(@"deviceTokenStr = %@",deviceTokenStr1);
-//    
-//    
-//    //将deviceToken保存在NSUserDefaults
-//    
-//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//    //保存 device token 令牌,并且去掉空格
-////    [userDefaults setObject:[deviceTokenStr1 stringByReplacingOccurrencesOfString:@" " withString:@""] forKey:DeviceTokenStringKEY];
-//    
-//    
-    
-
-    
-//    NSString * str = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
-    
     NSString *deviceTokenStr = [XGPush registerDevice:deviceToken account:nil successCallback:^{
         NSLog(@"[XGDemo] register push success");
         [SVProgressHUD showSuccessWithStatus:@"token regist success!!"];

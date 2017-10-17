@@ -20,4 +20,6 @@
 + (void)jumpToCommentListVCWithTopic:(TopicEntity *)topic;
 + (void)jumpToSWebVCWithTopic:(TopicEntity *)topic;
 + (void)jumpToWebVCWithUrlString:(NSString *)url;
+
++ (void)jumpToWebVCWithUrlString:(NSString *)url params:(NSDictionary *)params;
 @end

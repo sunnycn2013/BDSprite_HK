@@ -12,10 +12,14 @@
 #import "TopicVoteView.h"
 #import "BSCacheManager.h"
 #import "UMengSocialHandler.h"
+#import "BDBaseRequest.h"
+#import "UAUtil.h"
 
 @interface BSWebViewController ()<BSBottomViewDelegate>
 @property (nonatomic, strong) BSBottomView *bottomView;
 @property (nonatomic, strong) NSDictionary * shareInfo;
+@property (nonatomic, strong) BDBaseRequest * request;
+
 @end
 
 @implementation BSWebViewController
@@ -76,12 +80,43 @@
             NSDictionary * dic = self.params ? : @{};
             [[BSCacheManager sharedCache] saveFavouriteNews:dic key:key];
         }
-        [SVProgressHUD showInfoWithStatus:@"已经加入收藏夹"];
+        [self saveFavouriteToServer];
     }else{
         [SVProgressHUD showInfoWithStatus:@"赞"];
     }
 }
 
+- (void)saveFavouriteToServer
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString * deviceToken = [userDefaults objectForKey:BS_Device_Token];
+    NSString * idfa = [UAUtil getAdvertisingIdentifier];
+    NSString * coinid = self.params[@"coin_id"] ? : @"";
+
+    NSString * functionID = @"/token/addtag";
+    NSDictionary * params = @{
+                              @"token" : deviceToken ? : @"",
+                              @"pid" : idfa ? : @"",
+                              @"account" : @"",
+                              @"tagname" : coinid,
+                              @"device" : @"ios"
+                              };
+    NSString * requestURL = [NSString stringWithFormat:@"%@%@",APIBaseURL,functionID];
+    self.request = [BDBaseRequest manager];
+    
+    [self.request GET:requestURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nullable task, id  _Nullable responseObject) {
+        NSString * err_msg = responseObject[@"err_msg"];
+        NSString * ret_code = responseObject[@"ret_code"];
+        if ([ret_code doubleValue] > 0) {
+            [SVProgressHUD showInfoWithStatus:@"已经加入收藏夹"];
+        }else{
+            [SVProgressHUD showInfoWithStatus:err_msg];
+        }
+        DLog(@"success..");
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nullable error) {
+        DLog(@"%@",error);
+    }];
+}
 #pragma mark -  set get
 - (BSBottomView *)bottomView
 {

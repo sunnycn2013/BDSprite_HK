@@ -73,6 +73,14 @@
     [self pushToOtherView:webVC animated:YES];
 }
 
++ (void)jumpToWebVCWithUrlString:(NSString *)url params:(NSDictionary *)params{
+    BSWebViewController *webVC = [[BSWebViewController alloc] initWithUrl:[NSURL URLWithString:url]];
+    webVC.hidesBottomBarWhenPushed = YES;
+    webVC.params = params;
+    [webVC setShareButton];
+    [self pushToOtherView:webVC animated:YES];
+}
+
 + (void)jumpToSWebVCWithTopic:(TopicEntity *)topic
 {
     NSDictionary * params = @{

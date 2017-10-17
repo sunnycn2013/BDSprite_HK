@@ -27,8 +27,11 @@
 @property (nonatomic,strong) BSCoininfoBean * infoBean;
 @property (nonatomic,strong) NSString * url;
 
+@property (nonatomic,strong) NSString * coin_id;
+
 @property (nonatomic,strong) NSString * timeStr;
 @property (nonatomic,strong) NSString * percentStr;
 @property (nonatomic,strong) NSString * jumpURL;
+@property (nonatomic,assign) double   marketValue;
 
 @end

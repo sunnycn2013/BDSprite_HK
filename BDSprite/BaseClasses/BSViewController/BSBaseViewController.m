@@ -90,7 +90,9 @@
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        CGSize statusBarSize = [UIApplication sharedApplication].statusBarFrame.size;
+        CGFloat marginTop = statusBarSize.height + 44;
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, marginTop, SCREEN_WIDTH, SCREEN_HEIGHT)];
         _tableView.delegate = self;
         _tableView.dataSource = self;
 //        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

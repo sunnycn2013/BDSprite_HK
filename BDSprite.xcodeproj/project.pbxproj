@@ -86,7 +86,6 @@
 		56D8F01E1BAF97C500242FA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D8F01D1BAF97C500242FA9 /* main.m */; };
 		56D8F0211BAF97C500242FA9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D8F0201BAF97C500242FA9 /* AppDelegate.m */; };
 		56D8F0291BAF97C500242FA9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D8F0281BAF97C500242FA9 /* Images.xcassets */; };
-		56D8F02C1BAF97C500242FA9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D8F02A1BAF97C500242FA9 /* LaunchScreen.xib */; };
 		56D8F0381BAF97C500242FA9 /* PHPHubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D8F0371BAF97C500242FA9 /* PHPHubTests.m */; };
 		56D8F0521BAF9F7200242FA9 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D8F0511BAF9F7200242FA9 /* BaseModel.m */; };
 		56D8F0551BAF9FF200242FA9 /* BaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D8F0541BAF9FF200242FA9 /* BaseApi.m */; };
@@ -131,6 +130,7 @@
 		B0AF29A01F87C717007D2E80 /* BSHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AF299F1F87C717007D2E80 /* BSHeaderView.m */; };
 		B0AF29A41F87C841007D2E80 /* me_head.png in Resources */ = {isa = PBXBuildFile; fileRef = B0AF29A21F87C841007D2E80 /* me_head.png */; };
 		C19433421BB340A200D51917 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = C19433411BB340A200D51917 /* UIResponder+Router.m */; };
+		C309D6411F96326E001EAFD3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C309D63F1F96326D001EAFD3 /* LaunchScreen.xib */; };
 		C358E0061F8F04A8008A1A8F /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C358DFF71F8F04A7008A1A8F /* 1.jpeg */; };
 		C358E0071F8F04A8008A1A8F /* 10.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C358DFF81F8F04A7008A1A8F /* 10.jpeg */; };
 		C358E0081F8F04A8008A1A8F /* 11.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C358DFF91F8F04A7008A1A8F /* 11.jpeg */; };
@@ -343,7 +343,6 @@
 		56D8F01F1BAF97C500242FA9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		56D8F0201BAF97C500242FA9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		56D8F0281BAF97C500242FA9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
-		56D8F02B1BAF97C500242FA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		56D8F0311BAF97C500242FA9 /* BDSpriteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BDSpriteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56D8F0361BAF97C500242FA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56D8F0371BAF97C500242FA9 /* PHPHubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPHubTests.m; sourceTree = "<group>"; };
@@ -428,6 +427,8 @@
 		C003A999B47C793CAEED2C22 /* libPods-BDSpriteTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BDSpriteTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19433401BB340A200D51917 /* UIResponder+Router.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Router.h"; sourceTree = "<group>"; };
 		C19433411BB340A200D51917 /* UIResponder+Router.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Router.m"; sourceTree = "<group>"; };
+		C309D6401F96326D001EAFD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = BDSprite/Base.lproj/LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
+		C309D6431F9632F1001EAFD3 /* Default-736.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Default-736.jpg"; sourceTree = "<group>"; };
 		C358DFF71F8F04A7008A1A8F /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		C358DFF81F8F04A7008A1A8F /* 10.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpeg; sourceTree = "<group>"; };
 		C358DFF91F8F04A7008A1A8F /* 11.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11.jpeg; sourceTree = "<group>"; };
@@ -715,8 +716,6 @@
 				5652184C1BBA7EDD00412E60 /* Passport */,
 				565218491BBA7CDD00412E60 /* Me */,
 				565218351BBA7CC500412E60 /* Base */,
-				565218381BBA7CC500412E60 /* Essential */,
-				565218391BBA7CC500412E60 /* Launch */,
 				5652183A1BBA7CC500412E60 /* Notification */,
 				5652183F1BBA7CC500412E60 /* Topic */,
 			);
@@ -736,21 +735,6 @@
 				56E945601BDF04F10008B02C /* BaseWebView.m */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		565218381BBA7CC500412E60 /* Essential */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Essential;
-			sourceTree = "<group>";
-		};
-		565218391BBA7CC500412E60 /* Launch */ = {
-			isa = PBXGroup;
-			children = (
-				56D8F02A1BAF97C500242FA9 /* LaunchScreen.xib */,
-			);
-			path = Launch;
 			sourceTree = "<group>";
 		};
 		5652183A1BBA7CC500412E60 /* Notification */ = {
@@ -1012,6 +996,8 @@
 		56D8F0491BAF9D7000242FA9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C309D6431F9632F1001EAFD3 /* Default-736.jpg */,
+				C309D63F1F96326D001EAFD3 /* LaunchScreen.xib */,
 				5618683A1BBE1A3800E9E111 /* Migrations.bundle */,
 				56D8F0281BAF97C500242FA9 /* Images.xcassets */,
 			);
@@ -1778,7 +1764,6 @@
 				B044EFA01F7763D100538FBF /* aa.jpg in Resources */,
 				C358E0081F8F04A8008A1A8F /* 11.jpeg in Resources */,
 				B044EF911F774A3400538FBF /* WeiboSDK.bundle in Resources */,
-				56D8F02C1BAF97C500242FA9 /* LaunchScreen.xib in Resources */,
 				5652184B1BBA7D0500412E60 /* Me.storyboard in Resources */,
 				B044EF8E1F774A3400538FBF /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				C358E0061F8F04A8008A1A8F /* 1.jpeg in Resources */,
@@ -1803,6 +1788,7 @@
 				560E4BF71BC0B57800BD8CE2 /* Settings.storyboard in Resources */,
 				B044EFA21F7763E700538FBF /* icon.png in Resources */,
 				C358E00B1F8F04A8008A1A8F /* 14.jpeg in Resources */,
+				C309D6411F96326E001EAFD3 /* LaunchScreen.xib in Resources */,
 				C3AD1DC61F729C710063D3BA /* bar_share@2x.png in Resources */,
 				C358E0101F8F04A8008A1A8F /* 5.jpeg in Resources */,
 				B044EF981F774A3400538FBF /* UMSocialSDKPromptResources.bundle in Resources */,
@@ -2094,13 +2080,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		56D8F02A1BAF97C500242FA9 /* LaunchScreen.xib */ = {
+		C309D63F1F96326D001EAFD3 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				56D8F02B1BAF97C500242FA9 /* Base */,
+				C309D6401F96326D001EAFD3 /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

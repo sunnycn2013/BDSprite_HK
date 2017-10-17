@@ -10,9 +10,9 @@
 #define QiniuUploadTokenIdentifier @"QiniuUploadTokenIdentifier"
 
 #if DEBUG
-#define APIBaseURL      @"http://staging.BDSprite.org/v1"
+#define APIBaseURL      @"https://fengzhihen.com/btcapp/"
 #else
-#define APIBaseURL      @"https://api.BDSprite.org/v1"
+#define APIBaseURL      @"https://fengzhihen.com/btcapp/"
 #endif
 
 #define BDSpriteHost        @"BDSprite.org"

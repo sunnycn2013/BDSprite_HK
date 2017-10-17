@@ -123,7 +123,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BSCoinModel * model = [self.coinViewModel.coins objectAtIndex:indexPath.row];
-    [JumpToOtherVCHandler jumpToWebVCWithUrlString:model.jumpURL];
+    NSDictionary * params = @{
+                              @"tagname" : model.coin_id ? : @""
+                              };
+    [JumpToOtherVCHandler jumpToWebVCWithUrlString:model.jumpURL params:params];
 }
 
 #pragma mark - BSCoinCategoryViewDelegate

@@ -60,4 +60,9 @@
 {
     return _url;
 }
+
+- (double)marketValue
+{
+    return [_turnvolume doubleValue] / 10000.0;
+}
 @end
