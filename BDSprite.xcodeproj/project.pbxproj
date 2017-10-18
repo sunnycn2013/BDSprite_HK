@@ -127,10 +127,10 @@
 		B05491FF1F933C0E00F9491A /* 0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B05491FE1F933C0E00F9491A /* 0.jpeg */; };
 		B07E12AE1F6199B40077BD5F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E12AD1F6199B40077BD5F /* UserNotifications.framework */; };
 		B07E12B11F62113A0077BD5F /* BSShowMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E12B01F62113A0077BD5F /* BSShowMessageViewController.m */; };
+		B08EBE251F9650E0008CF1BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B08EBE241F9650E0008CF1BB /* LaunchScreen.storyboard */; };
 		B0AF29A01F87C717007D2E80 /* BSHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AF299F1F87C717007D2E80 /* BSHeaderView.m */; };
 		B0AF29A41F87C841007D2E80 /* me_head.png in Resources */ = {isa = PBXBuildFile; fileRef = B0AF29A21F87C841007D2E80 /* me_head.png */; };
 		C19433421BB340A200D51917 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = C19433411BB340A200D51917 /* UIResponder+Router.m */; };
-		C309D6411F96326E001EAFD3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C309D63F1F96326D001EAFD3 /* LaunchScreen.xib */; };
 		C358E0061F8F04A8008A1A8F /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C358DFF71F8F04A7008A1A8F /* 1.jpeg */; };
 		C358E0071F8F04A8008A1A8F /* 10.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C358DFF81F8F04A7008A1A8F /* 10.jpeg */; };
 		C358E0081F8F04A8008A1A8F /* 11.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C358DFF91F8F04A7008A1A8F /* 11.jpeg */; };
@@ -421,13 +421,13 @@
 		B07E12AD1F6199B40077BD5F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		B07E12AF1F62113A0077BD5F /* BSShowMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSShowMessageViewController.h; sourceTree = "<group>"; };
 		B07E12B01F62113A0077BD5F /* BSShowMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSShowMessageViewController.m; sourceTree = "<group>"; };
+		B08EBE241F9650E0008CF1BB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0AF299E1F87C717007D2E80 /* BSHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSHeaderView.h; sourceTree = "<group>"; };
 		B0AF299F1F87C717007D2E80 /* BSHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSHeaderView.m; sourceTree = "<group>"; };
 		B0AF29A21F87C841007D2E80 /* me_head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me_head.png; sourceTree = "<group>"; };
 		C003A999B47C793CAEED2C22 /* libPods-BDSpriteTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BDSpriteTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19433401BB340A200D51917 /* UIResponder+Router.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Router.h"; sourceTree = "<group>"; };
 		C19433411BB340A200D51917 /* UIResponder+Router.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Router.m"; sourceTree = "<group>"; };
-		C309D6401F96326D001EAFD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = BDSprite/Base.lproj/LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
 		C309D6431F9632F1001EAFD3 /* Default-736.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Default-736.jpg"; sourceTree = "<group>"; };
 		C358DFF71F8F04A7008A1A8F /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		C358DFF81F8F04A7008A1A8F /* 10.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpeg; sourceTree = "<group>"; };
@@ -996,8 +996,8 @@
 		56D8F0491BAF9D7000242FA9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B08EBE241F9650E0008CF1BB /* LaunchScreen.storyboard */,
 				C309D6431F9632F1001EAFD3 /* Default-736.jpg */,
-				C309D63F1F96326D001EAFD3 /* LaunchScreen.xib */,
 				5618683A1BBE1A3800E9E111 /* Migrations.bundle */,
 				56D8F0281BAF97C500242FA9 /* Images.xcassets */,
 			);
@@ -1711,7 +1711,7 @@
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1781,6 +1781,7 @@
 				C3AD1DC71F729C710063D3BA /* bar_share@3x.png in Resources */,
 				C36F21C41F5C01D00003B7C5 /* bd_placeholder.jpg in Resources */,
 				5618683B1BBE1A3800E9E111 /* Migrations.bundle in Resources */,
+				B08EBE251F9650E0008CF1BB /* LaunchScreen.storyboard in Resources */,
 				C358E00D1F8F04A8008A1A8F /* 2.jpeg in Resources */,
 				56D8F0291BAF97C500242FA9 /* Images.xcassets in Resources */,
 				560E4C141BC6424800BD8CE2 /* Topic.storyboard in Resources */,
@@ -1788,7 +1789,6 @@
 				560E4BF71BC0B57800BD8CE2 /* Settings.storyboard in Resources */,
 				B044EFA21F7763E700538FBF /* icon.png in Resources */,
 				C358E00B1F8F04A8008A1A8F /* 14.jpeg in Resources */,
-				C309D6411F96326E001EAFD3 /* LaunchScreen.xib in Resources */,
 				C3AD1DC61F729C710063D3BA /* bar_share@2x.png in Resources */,
 				C358E0101F8F04A8008A1A8F /* 5.jpeg in Resources */,
 				B044EF981F774A3400538FBF /* UMSocialSDKPromptResources.bundle in Resources */,
@@ -1850,7 +1850,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C2AFAA07BFA1FE2CF78DD1A1 /* [CP] Check Pods Manifest.lock */ = {
@@ -1868,7 +1868,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D1949EB42CFF9A5F07C5F078 /* [CP] Copy Pods Resources */ = {
@@ -2079,17 +2079,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		C309D63F1F96326D001EAFD3 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C309D6401F96326D001EAFD3 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		56437C9A1BD9DC2200C6995F /* ad hoc distribution */ = {
 			isa = XCBuildConfiguration;
@@ -2137,6 +2126,7 @@
 			baseConfigurationReference = 34D9E862C820EC0BDF2106FE /* Pods-BDSprite.ad hoc distribution.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BDSprite/BDSprite.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -2316,6 +2306,7 @@
 			baseConfigurationReference = 5A4DBEA4A053967DFF5E6883 /* Pods-BDSprite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BDSprite/BDSprite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2375,7 +2366,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bite.sprite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "eb688efe-b8e1-4cf4-b8a7-87afa97bdce9";
+				PROVISIONING_PROFILE = "42a544c1-6d50-4c60-b342-afc7239dbc9c";
 				PROVISIONING_PROFILE_SPECIFIER = com.bite.Sprite_Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2386,6 +2377,7 @@
 			baseConfigurationReference = 15570EB4C0A13C3031F67224 /* Pods-BDSprite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BDSprite/BDSprite.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Chaoyang Guo (KGM644AULJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;

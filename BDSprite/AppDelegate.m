@@ -243,7 +243,8 @@
 }
 
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
     NSString *deviceTokenStr = [XGPush registerDevice:deviceToken account:nil successCallback:^{
         NSLog(@"[XGDemo] register push success");
         [SVProgressHUD showSuccessWithStatus:@"token regist success!!"];
