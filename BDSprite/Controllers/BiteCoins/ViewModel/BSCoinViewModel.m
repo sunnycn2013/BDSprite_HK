@@ -29,7 +29,7 @@
 {
     __weak typeof(self) weakSelf = self;
     NSInteger count = (page == 1) ? 1 : 20; //20;
-    NSString * start = [NSString stringWithFormat:@"%ld",(page-1) * count+1];
+    NSString * start = [NSString stringWithFormat:@"%ld",(page-1) * count];
     NSDictionary * temParams = @{@"start" : start,@"count" : @"20"};
     NSMutableDictionary * requestParams = [[NSMutableDictionary alloc] initWithDictionary:temParams];
     [requestParams addEntriesFromDictionary:params];

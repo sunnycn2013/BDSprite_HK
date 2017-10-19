@@ -30,7 +30,7 @@
 {
     __weak typeof(self) weakSelf = self;
     NSInteger count = (page == 1) ? 1 : 20; //20;
-    NSString * start = [NSString stringWithFormat:@"%ld",(page-1) * count+1];
+    NSString * start = [NSString stringWithFormat:@"%ld",(page-1) * count];
     NSDictionary * params =  @{@"start" : start,@"count" : @"20"};
     self.request.parameters = params;
     //start=2&count=100

@@ -137,7 +137,7 @@
     
     if (index == 1) {
         [infos setObject:@"volume" forKey:@"sort"];
-        [infos setObject:@"false" forKey:@"desc"];
+        [infos setObject:@"true" forKey:@"desc"];
     }else if (index == 2){
         [infos setObject:@"percent" forKey:@"sort"];
         [infos setObject:@"false" forKey:@"desc"];
