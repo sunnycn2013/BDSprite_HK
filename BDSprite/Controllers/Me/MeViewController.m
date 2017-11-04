@@ -31,6 +31,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUnreadCount:) name:UpdateNoticeCount object:nil];
     self.navigationItem.title = @"我的";
     [self setupCornerRadiusWithView:@[_avatarImageView, _unreadCountLabel]];
+    
+    BSHeaderView * header = [[BSHeaderView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 150)];
+    self.tableView.tableHeaderView = header;
+    self.tableView.frame = CGRectMake(0, 150, KScreenWidth, KScreenHeight);
+    
+    self.tableView.backgroundColor = [UIColor colorWithHexString:@"#99BCE1"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -133,6 +133,7 @@
 		C319BC771FADB7C8005253F0 /* bd_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C319BC761FADB7C8005253F0 /* bd_share@2x.png */; };
 		C319BC7A1FADBCE2005253F0 /* bd_favorite_light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C319BC781FADBCE2005253F0 /* bd_favorite_light@2x.png */; };
 		C319BC7F1FADBE8D005253F0 /* bd_favorite_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C319BC7E1FADBE8C005253F0 /* bd_favorite_normal@2x.png */; };
+		C319BC811FADC5CC005253F0 /* head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C319BC801FADC5CC005253F0 /* head@2x.png */; };
 		C358E0061F8F04A8008A1A8F /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C358DFF71F8F04A7008A1A8F /* 1.jpeg */; };
 		C358E0071F8F04A8008A1A8F /* 10.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C358DFF81F8F04A7008A1A8F /* 10.jpeg */; };
 		C358E0081F8F04A8008A1A8F /* 11.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C358DFF91F8F04A7008A1A8F /* 11.jpeg */; };
@@ -442,6 +443,7 @@
 		C319BC761FADB7C8005253F0 /* bd_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bd_share@2x.png"; sourceTree = "<group>"; };
 		C319BC781FADBCE2005253F0 /* bd_favorite_light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bd_favorite_light@2x.png"; sourceTree = "<group>"; };
 		C319BC7E1FADBE8C005253F0 /* bd_favorite_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bd_favorite_normal@2x.png"; sourceTree = "<group>"; };
+		C319BC801FADC5CC005253F0 /* head@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "head@2x.png"; sourceTree = "<group>"; };
 		C358DFF71F8F04A7008A1A8F /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		C358DFF81F8F04A7008A1A8F /* 10.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpeg; sourceTree = "<group>"; };
 		C358DFF91F8F04A7008A1A8F /* 11.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11.jpeg; sourceTree = "<group>"; };
@@ -865,6 +867,7 @@
 		56737C321BB2A1B5008B3E60 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				C319BC801FADC5CC005253F0 /* head@2x.png */,
 				B0AF29A21F87C841007D2E80 /* me_head.png */,
 				56737C331BB2A1FE008B3E60 /* MeViewController.h */,
 				56737C341BB2A1FE008B3E60 /* MeViewController.m */,
@@ -1890,6 +1893,7 @@
 				C319BC771FADB7C8005253F0 /* bd_share@2x.png in Resources */,
 				560E4BF71BC0B57800BD8CE2 /* Settings.storyboard in Resources */,
 				C358E00B1F8F04A8008A1A8F /* 14.jpeg in Resources */,
+				C319BC811FADC5CC005253F0 /* head@2x.png in Resources */,
 				C3AD1DC61F729C710063D3BA /* bar_share@2x.png in Resources */,
 				C358E0101F8F04A8008A1A8F /* 5.jpeg in Resources */,
 				B044EF981F774A3400538FBF /* UMSocialSDKPromptResources.bundle in Resources */,

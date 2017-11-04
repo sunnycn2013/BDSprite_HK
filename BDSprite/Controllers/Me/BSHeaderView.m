@@ -31,7 +31,7 @@
 
 - (void)setUI{
     _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
-    _imageView.image = [UIImage imageNamed:@"me_head"];
+    _imageView.image = [UIImage imageNamed:@"head"];
     _imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview:_imageView];
     
