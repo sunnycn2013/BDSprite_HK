@@ -85,6 +85,11 @@
     UIBarButtonItem * rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:shareButton];
     self.navigationItem.rightBarButtonItem = rightBarButton;
 }
+
+- (void)shareAction:(UIBarButtonItem *)sender
+{
+    
+}
 #pragma mark - set get
 - (UITableView *)tableView
 {

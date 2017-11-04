@@ -15,7 +15,7 @@
 #import "CommentListViewController.h"
 #import "TOWebViewController.h"
 #import "BSHeaderView.h"
-
+//#527ACB
 @interface MeViewController () <LoginViewControllerDelegate>
 @property (nonatomic, strong) UserEntity *userEntity;
 @property (nonatomic, strong) BSHeaderView *headerView;
@@ -42,10 +42,14 @@
     } else
     {
     }
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 - (void)setupCornerRadiusWithView:(NSArray *)views {
@@ -84,6 +88,10 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60.0;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return section == 0 ? 1.0f : UITableViewAutomaticDimension;
 }

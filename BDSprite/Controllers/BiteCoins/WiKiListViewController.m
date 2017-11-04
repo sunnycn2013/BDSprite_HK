@@ -11,6 +11,8 @@
 #import "BSCoinCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "BSCoinCategoryView.h"
+#import "BDCoinDetailViewController.h"
+#import "UMengSocialHandler.h"
 
 @interface WiKiListViewController ()<UITableViewDelegate,UITableViewDataSource,BSCoinCategoryViewDelegate>{
     UIScrollView *_scrollView;
@@ -45,6 +47,21 @@
     CGFloat marginTop = statusBarSize.height + 44;
     self.categoryView.frame = CGRectMake(0, marginTop, KScreenWidth, 44);
     self.tableView.frame = CGRectMake(0, _categoryView.bottom, SCREEN_WIDTH, KScreenHeight);
+    
+    UIButton * rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setImage:[UIImage imageNamed:@"bd_share"] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem * rightBar = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    [self.navigationItem setRightBarButtonItem:rightBar];
+}
+
+- (void)shareAction:(UIBarButtonItem *)sender
+{
+    NSString * url = @"www.icaibei.com";
+    NSString * title = @"币动精灵";
+    NSString * text = @"币动精灵";
+    
+    [UMengSocialHandler shareWithShareURL:url shareImageUrl:nil shareTitle:title shareText:text presentVC:self delegate:self];
 }
 
 - (void)headerRefreshing {
@@ -123,10 +140,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BSCoinModel * model = [self.coinViewModel.coins objectAtIndex:indexPath.row];
-    NSDictionary * params = @{
-                              @"tagname" : model.coin_id ? : @""
-                              };
-    [JumpToOtherVCHandler jumpToWebVCWithUrlString:model.jumpURL params:params];
+//    NSDictionary * params = @{
+//                              @"tagname" : model.coin_id ? : @""
+//                              };
+//    [JumpToOtherVCHandler jumpToWebVCWithUrlString:model.jumpURL params:params];
+    BDCoinDetailViewController * detail = [[BDCoinDetailViewController alloc] init];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 #pragma mark - BSCoinCategoryViewDelegate

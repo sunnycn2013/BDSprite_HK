@@ -84,7 +84,7 @@
     _meNC.tabBarItem.imageInsets = insets;
     _meNC.tabBarItem.title = @"我的";
     
-    NSArray *controllers = @[_essentialNC, _forumNC, _wikiNC, _meNC];
+    NSArray *controllers = @[_wikiNC,_essentialNC, _forumNC, _meNC];
     [self setViewControllers:controllers];
     
 }

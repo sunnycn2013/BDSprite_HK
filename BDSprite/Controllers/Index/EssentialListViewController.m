@@ -128,9 +128,9 @@
     NSString * str = [topic.topicContentUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     SFSafariViewController *sfViewController = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:str]];
     sfViewController.delegate = self;
-    [self presentViewController:sfViewController animated:YES completion:^{
-        //...
-    }];
+    sfViewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:sfViewController animated:YES];
+//    [self presentViewController:sfViewController animated:YES completion:nil];
 }
 
 // Done 按钮
