@@ -16,7 +16,7 @@
 #import "TOWebViewController.h"
 #import "BSHeaderView.h"
 //#527ACB
-@interface MeViewController () <LoginViewControllerDelegate>
+@interface MeViewController () <LoginViewControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) UserEntity *userEntity;
 @property (nonatomic, strong) BSHeaderView *headerView;
 
@@ -25,18 +25,17 @@
 
 @implementation MeViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUnreadCount:) name:UpdateNoticeCount object:nil];
     self.navigationItem.title = @"我的";
     [self setupCornerRadiusWithView:@[_avatarImageView, _unreadCountLabel]];
     
-    BSHeaderView * header = [[BSHeaderView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 150)];
+    BSHeaderView * header = [[BSHeaderView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 80)];
     self.tableView.tableHeaderView = header;
     self.tableView.frame = CGRectMake(0, 150, KScreenWidth, KScreenHeight);
     
-    self.tableView.backgroundColor = [UIColor colorWithHexString:@"#99BCE1"];
+    self.navigationController.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -48,14 +47,14 @@
     } else
     {
     }
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:nil];
+//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 - (void)setupCornerRadiusWithView:(NSArray *)views {
@@ -139,7 +138,17 @@
     }
 }
 
-- (TopicListViewController *)createTopicListWithType:(TopicListType)topicListType {
+#pragma mark - UINavigationControllerDelegate
+    // 将要显示控制器
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    // 判断要显示的控制器是否是自己
+    BOOL isShowHomePage = [viewController isKindOfClass:[self class]];
+    
+    [self.navigationController setNavigationBarHidden:isShowHomePage animated:YES];
+}
+
+- (TopicListViewController *)createTopicListWithType:(TopicListType)topicListType
+ {
     TopicListViewController *topicListVC = [[TopicListViewController alloc] init];
     topicListVC.userId = [[CurrentUser Instance] userId].integerValue;
     topicListVC.topicListType = topicListType;
