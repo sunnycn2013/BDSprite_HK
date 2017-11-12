@@ -38,6 +38,7 @@
 #import <YYKit/YYKit.h>
 #import <DateTools/NSDate+DateTools.h>
 #import <Masonry/Masonry.h>
+#import "BDSpriteContext.h"
 
 #define DidTapStatusBar @"DidTapStatusBar"
 

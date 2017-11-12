@@ -14,6 +14,8 @@
 #import "BDCoinDetailViewController.h"
 #import "UMengSocialHandler.h"
 
+#import "CMSearchViewController.h"
+
 @interface WiKiListViewController ()<UITableViewDelegate,UITableViewDataSource,BSCoinCategoryViewDelegate>{
     UIScrollView *_scrollView;
 }
@@ -48,11 +50,23 @@
     self.categoryView.frame = CGRectMake(0, marginTop, KScreenWidth, 44);
     self.tableView.frame = CGRectMake(0, _categoryView.bottom, SCREEN_WIDTH, KScreenHeight);
     
+    UIButton * leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftButton setImage:[UIImage imageNamed:@"sousuo"] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(openSearchVC:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem * leftBar = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    [self.navigationItem setLeftBarButtonItem:leftBar];
+    
     UIButton * rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightButton setImage:[UIImage imageNamed:@"bd_share"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem * rightBar = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     [self.navigationItem setRightBarButtonItem:rightBar];
+}
+
+- (void)openSearchVC:(UIBarButtonItem *)sender
+{
+    CMSearchViewController * search = [[CMSearchViewController alloc] init];
+    [self.navigationController pushViewController:search animated:YES];
 }
 
 - (void)shareAction:(UIBarButtonItem *)sender

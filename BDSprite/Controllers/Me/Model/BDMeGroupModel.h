@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger,BDMeItemType){
+    BDMeItemTypeDefault = 0,
+    BDMeItemTypeSwitch,
+    BDMeItemTypeText,
+    BDMeItemTypeCache,
+    BDMeItemTypeEvaluation,
+    BDMeItemTypeAbout,
+    BDMeItemTypeJoinWeiXin
+};
+
 @interface BDMeGroupModel : NSObject
 
 @property (nonatomic,assign) CGFloat headHeight;
@@ -20,5 +30,8 @@
 
 @property (nonatomic,strong) NSString * title;
 @property (nonatomic,strong) NSString * patton;
+@property (nonatomic,assign) BDMeItemType type;
+@property (nonatomic,strong) NSString * showText;
+@property (nonatomic,assign) BOOL isClear;
 
 @end

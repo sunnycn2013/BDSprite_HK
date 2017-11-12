@@ -14,4 +14,12 @@
 
 @implementation BDMeItemModel
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        _isClear = NO;
+    }
+    return self;
+}
+
 @end

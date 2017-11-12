@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BDShowInfoViewController.h"
+#import "BDAboutViewController.h"
+#import "BDJoninWeixinViewController.h"
 
 @interface MeViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;

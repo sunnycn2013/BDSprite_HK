@@ -119,6 +119,10 @@
     BDMeItemModel * item = [group.sections objectAtIndex:indexPath.row];
     BDMineCell * cell = (BDMineCell *)[tableView dequeueReusableCellWithIdentifier:@"BDMineCell"];
     [cell fillData:item];
+    __weak typeof(self) weakSelf = self;
+    [cell setTapBlock:^(id obj, UITableViewCell *cell) {
+        [weakSelf handleAction:obj cell:cell];
+    }];
     return cell;
 }
 
@@ -144,36 +148,38 @@
     return view;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger section = indexPath.section;
-    NSInteger row = indexPath.row;
-    UIViewController *vc;
-    if (section == 0 && row == 0) {
-
-    } else if (section == 1) {
-        switch (row) {
-            case 0: {
-                BSLocalPageViewController *notificationListVC = [[BSLocalPageViewController alloc] initWithStyle:BSLocalPageTypeHistory];
-                vc = notificationListVC;
-                break;
-            } case 1: {
-                vc = [[BSLocalPageViewController alloc] initWithStyle:BSLocalPageTypeFavourite];
-                break;
-            }
+- (void)handleAction:(BDMeItemModel *)obj cell:(UITableViewCell *)cell
+{
+    if ([obj isKindOfClass:[BDMeItemModel class]]) {
+        BDMeItemModel * model = (BDMeItemModel *)obj;
+        if (model.type == BDMeItemTypeText)
+        {
+            return;
+        }else if (model.type == BDMeItemTypeSwitch){
+            return;
         }
-    } else if (section == 2) {
-        if (row == 0) {
-            vc = [self createTopicListWithType:TopicListTypeNormal];
-        } else if (row == 1) {
-             vc = [[UIStoryboard storyboardWithName:@"Settings" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"settings"];
+        else if (model.type == BDMeItemTypeCache){
+            [(BDMineCell *)cell clearText];
+            [SVProgressHUD showSuccessWithStatus:@"清除成功"];
+            return;
+        }else{
+            [self handleActionWithModel:model];
         }
     }
+}
+
+- (void)handleActionWithModel:(BDMeItemModel *)model
+{
+    if (model.type == BDMeItemTypeAbout) {
+        BDAboutViewController * about = [[BDAboutViewController alloc] init];
+        [self.navigationController pushViewController:about animated:YES];
+        return;
+    }
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if (vc) {
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+    if (model.type == BDMeItemTypeJoinWeiXin) {
+        BDJoninWeixinViewController * weixin = [[BDJoninWeixinViewController alloc] init];
+        [self.navigationController pushViewController:weixin animated:YES];
+        return;
     }
 }
 
@@ -182,7 +188,7 @@
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     // 判断要显示的控制器是否是自己
     BOOL isShowHomePage = [viewController isKindOfClass:[self class]];
-    
+
     [self.navigationController setNavigationBarHidden:isShowHomePage animated:YES];
 }
 

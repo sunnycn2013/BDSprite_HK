@@ -10,6 +10,10 @@
 
 @interface BDMineCell : UITableViewCell
 
+@property (nonatomic ,copy)void(^tapBlock)(id obj,UITableViewCell * cell);
+
 - (void)fillData:(id)model;
+
+- (void)clearText;
 
 @end
