@@ -28,20 +28,20 @@
     group01.headHeight = 10;
     
     BDMeItemModel * item01 = [[BDMeItemModel alloc] init];
-    item01.title = @"我的轨迹";
+    item01.title = @"联系我们";
     
     BDMeItemModel * item02 = [[BDMeItemModel alloc] init];
-    item02.title = @"我的关注";
+    item02.title = @"给我评价";
     group01.sections = [NSMutableArray arrayWithArray:@[item01,item02]];
     
     BDMeGroupModel * group02 = [[BDMeGroupModel alloc] init];
     group02.headHeight = 30;
 
     BDMeItemModel * item03 = [[BDMeItemModel alloc] init];
-    item03.title = @"关于我们";
+    item03.title = @"当前版本";
     
     BDMeItemModel * item04 = [[BDMeItemModel alloc] init];
-    item04.title = @"设置";
+    item04.title = @"清楚缓存";
     group02.sections = [NSMutableArray arrayWithArray:@[item03,item04]];
 
     self.items = [NSMutableArray arrayWithObjects:group00,group01,group02, nil];

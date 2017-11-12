@@ -59,7 +59,7 @@ PODS:
   - UIActionSheet+Blocks (0.9)
   - UITextView+Placeholder (1.2.0)
   - UMengFeedback (2.3.4)
-  - WebViewJavascriptBridge (6.0.2)
+  - WebViewJavascriptBridge (6.0.3)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -79,6 +79,7 @@ DEPENDENCIES:
   - JTSImageViewController
   - Mantle (= 1.5.5)
   - Masonry
+  - Masonry (~> 1.1.0)
   - MBProgressHUD
   - MJExtension (~> 3.0.13)
   - MJRefresh (~> 3.1.14)
@@ -98,40 +99,40 @@ DEPENDENCIES:
   - YYKit (~> 1.0.9)
 
 SPEC CHECKSUMS:
-  AFNetworking: 0f9f92467cc2ad03ea9961c65bb75028ea4d49a9
-  AFOAuth2Manager: 54d6ac3c01abd09ca64f00ede0eee3d433e2fdc8
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AFOAuth2Manager: 0566da1be64883e339813d411229fdc9a84dab7c
   Bugly: da3c02408c14838d498429320545a8e439392978
-  CTAssetsPickerController: 9f5714686bf3480f9a2b1d00b8c86cef43110d6b
-  DateTools: 94241485c835d3c962e77b75b4997e758ff5ae6c
-  DZNEmptyDataSet: 996c4705866c7f6c0ec825a398169ee7100deae3
-  FDFullscreenPopGesture: 3e43a54f2329be74dbda1a5cc3df153b42111c9e
-  FMDB: 4113a8a3256bb92cba59165a705c7f056080b579
-  FMDBMigrationManager: 7a0481656d3c68e84d7923a403ce7210839876d9
-  GVUserDefaults: ea92c5e1a348ffc73b6caf77c1c0781896aead98
-  HappyDNS: 74057479773717b81183c87476f781769dadc0ce
-  iCarousel: c5b682d2f6ef3338479e0cd87b5bd4847e73e37e
-  JTSImageViewController: 85cc59cf15963f1bfb24b15980922be065618059
-  Mantle: b1395d0953aa122e8a21251fb677f20b8a9a6638
-  Masonry: 1db7cd0e5e34999ac095f67a1d0f7fc664e19140
-  MBProgressHUD: 797fffbdf83b36406236328cc560949edd850dcf
-  MJExtension: d9fbee1fb9025889dae7d7096e6ecb9d0ff36121
-  MJRefresh: 85dfeacbb3ee5a645b4712b39e63a9b87a32acc9
-  MTLFMDBAdapter: b5b1c33d42633e4cfd4bb592466c6ee83b0d8b0f
-  pop: 5b4498f9dd43b028565f025227fc1a4c2df8a83f
-  PureLayout: ac3d68b29d6628957a617156afdbe31a82771070
-  QBPopupMenu: 1fe37586c95cb1784e3f4e65e2822922d15ab8aa
-  Qiniu: fcc8de1667fc36e055ec7fa6f3048ee24fa32bd6
-  QQ_XGPush: 9a9d2ba7a6ad7a18b1237794f327ff91b79f45da
-  QRCodeReaderViewController: 8ef1f5043076b52178fd3202a10d13960eb27036
-  SAMKeychain: 21e93e983eecc457174e58127c5ecf967ceece92
-  SDWebImage: 4b86a229f30a77a39c9a4d1aea624b02a9b30ebe
-  SVProgressHUD: f13d117b8bc3f9da2980741a15e0f4eaf5f69a07
-  UIActionSheet+Blocks: 1ce482c086babf80ea3a88f118644c34c48d3e72
-  UITextView+Placeholder: 54f392cdedf8e945deb820d2dd321613f2373ee3
+  CTAssetsPickerController: b1d1d50ab87cf6b8b13531de5f4530482e7e53ed
+  DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  FMDBMigrationManager: d14922c57f0893243123f7c96ace6e0c76c5d8b0
+  GVUserDefaults: 52d48cf8ba578b40a1a76312b196dfc9134ba36a
+  HappyDNS: 691a3041128055d09866f86e6e9ca90f24da1f18
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
+  Mantle: 1b29072a707453975b200a173cf77ec1e2810b75
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
+  MTLFMDBAdapter: 2d9c3ff7df0e32877bbeac14e40b7c87b46c450c
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  QBPopupMenu: e370cbc7ad8a8d09afe1726117aa18f92696f66a
+  Qiniu: 2f1b9d13904b6a7608a66a2d02c5b7b24575622a
+  QQ_XGPush: 8c3637d61e1b3fe6e7f60bb1c8aac34184c8bf40
+  QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
+  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
+  UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
   UMengFeedback: 5283cc0e324dffca4dd54c4abb3cbded56487817
-  WebViewJavascriptBridge: 318ccc771d1ad661b9c05b12d70994f725cf0639
-  YYKit: c6f89a5e8008fa83a13f9b89fda1ff6ce191eb08
+  WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: c2fc346a772f7df72395f2539b52806ee7c1c808
+PODFILE CHECKSUM: a33b5f4faac98d917ecc072c35719b19c10fea75
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.3.1

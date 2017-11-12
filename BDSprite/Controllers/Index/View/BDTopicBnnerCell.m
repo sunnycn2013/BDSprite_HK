@@ -72,7 +72,8 @@
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    return self.bannerModel.bannerList.count;
+//    return self.bannerModel.bannerList.count;
+    return 4;
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(nullable UIView *)view
@@ -107,13 +108,13 @@
 - (UIView *)carousel:(iCarousel *)carousel placeholderViewAtIndex:(NSInteger)index reusingView:(nullable UIView *)view
 {
     CGFloat width = KScreenWidth;
-    CGFloat height = kIPhone6Scale(250);
+    CGFloat height = kIPhone6PScale(250);
     UIImageView * reuseView = (UIImageView *)view;
-    CMHomeBanner * banner = [self.bannerModel.bannerList objectAtIndex:index];
+//    CMHomeBanner * banner = [self.bannerModel.bannerList objectAtIndex:index];
     if (!reuseView) {
         reuseView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         reuseView.contentMode = UIViewContentModeScaleAspectFill;
-        [reuseView setImageURL:[NSURL URLWithString:banner.img]];
+//        [reuseView setImageURL:[NSURL URLWithString:banner.img]];
     }
     return reuseView;
 }
