@@ -15,12 +15,18 @@
 #import "CommentListViewController.h"
 #import "TOWebViewController.h"
 #import "BSHeaderView.h"
+#import "BDMineCell.h"
+#import "BDMeModel.h"
+#import "BDMeGroupModel.h"
+
 //#527ACB
-@interface MeViewController () <LoginViewControllerDelegate,UINavigationControllerDelegate>
+@interface MeViewController () <LoginViewControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UserEntity *userEntity;
 @property (nonatomic, strong) BSHeaderView *headerView;
 
 @property (weak, nonatomic) IBOutlet UILabel *unreadCountLabel;
+@property (strong, nonatomic) BDMeModel * floors;
+
 @end
 
 @implementation MeViewController
@@ -29,11 +35,14 @@
 {
     [super viewDidLoad];
     self.navigationItem.title = @"我的";
-    [self setupCornerRadiusWithView:@[_avatarImageView, _unreadCountLabel]];
+    self.floors = [[BDMeModel alloc] init];
     
-    BSHeaderView * header = [[BSHeaderView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 80)];
-    self.tableView.tableHeaderView = header;
-    self.tableView.frame = CGRectMake(0, 150, KScreenWidth, KScreenHeight);
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+    self.tableView.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
+    [self.tableView registerClass:[BDMineCell class] forCellReuseIdentifier:@"BDMineCell"];
     
     self.navigationController.delegate = self;
 }
@@ -93,16 +102,46 @@
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 60.0;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return section == 0 ? 1.0f : UITableViewAutomaticDimension;
+    return [self.floors.items count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return section == 0 ? nil : @"";
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    BDMeGroupModel * group = [self.floors.items objectAtIndex:section];
+    return group.sections.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BDMeGroupModel * group = [self.floors.items objectAtIndex:indexPath.section];
+    BDMeItemModel * item = [group.sections objectAtIndex:indexPath.row];
+    BDMineCell * cell = (BDMineCell *)[tableView dequeueReusableCellWithIdentifier:@"BDMineCell"];
+    [cell fillData:item];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    BDMeGroupModel * group = [self.floors.items objectAtIndex:section];
+    return group.headHeight;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        BSHeaderView * header = [[BSHeaderView alloc] initWithFrame:CGRectMake(0, 200, KScreenWidth, 200)];
+        return header;
+    }
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 30)];
+    view.backgroundColor = [UIColor colorWithHexString:@"#F6F6F6"];
+    return view;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

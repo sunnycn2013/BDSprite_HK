@@ -139,12 +139,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BSCoinModel * model = [self.coinViewModel.coins objectAtIndex:indexPath.row];
+//    BSCoinModel * model = [self.coinViewModel.coins objectAtIndex:indexPath.row];
 //    NSDictionary * params = @{
 //                              @"tagname" : model.coin_id ? : @""
 //                              };
 //    [JumpToOtherVCHandler jumpToWebVCWithUrlString:model.jumpURL params:params];
     BDCoinDetailViewController * detail = [[BDCoinDetailViewController alloc] init];
+    detail.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detail animated:YES];
 }
 

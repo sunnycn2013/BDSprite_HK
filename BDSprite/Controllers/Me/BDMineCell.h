@@ -10,4 +10,6 @@
 
 @interface BDMineCell : UITableViewCell
 
+- (void)fillData:(id)model;
+
 @end

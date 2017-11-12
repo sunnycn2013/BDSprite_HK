@@ -116,14 +116,14 @@
 {
     BSWeiBoModel * model = [self.weiboViewModel.weibos objectAtIndex:indexPath.row];
     NSString * url = [NSString stringWithFormat:@"https://m.weibo.cn/status/%@",model.wbid];
-//    [JumpToOtherVCHandler jumpToWebVCWithUrlString:url];
-    NSDictionary * params = @{
-                              @"title" : model.wbname ? : @"",
-                              @"text" : model.text ? : @"",
-                              @"url" : url
-                              };
-    BDMessageDetailViewController * viewController = [[BDMessageDetailViewController alloc] initWithParams:params];
-    [self.navigationController pushViewController:viewController animated:YES];
+    [JumpToOtherVCHandler jumpToWebVCWithUrlString:url];
+//    NSDictionary * params = @{
+//                              @"title" : model.wbname ? : @"",
+//                              @"text" : model.text ? : @"",
+//                              @"url" : url
+//                              };
+//    BDMessageDetailViewController * viewController = [[BDMessageDetailViewController alloc] initWithParams:params];
+//    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - set get

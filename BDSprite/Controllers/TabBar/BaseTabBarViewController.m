@@ -13,6 +13,7 @@
 
 #import "BSWeiboViewController.h"
 #import "BSWebViewController.h"
+#import "MeViewController.h"
 
 @interface BaseTabBarViewController () {
     UINavigationController *_essentialNC;
@@ -55,11 +56,19 @@
 //    UIEdgeInsets insets = UIEdgeInsetsMake(6.0, 0.0, -6.0, 0.0);
     UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
 
+
+    
     EssentialListViewController *essentialListVC = [[EssentialListViewController alloc] init];
     _essentialNC = [[UINavigationController alloc] initWithRootViewController:essentialListVC];
-    _essentialNC.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[[UIImage imageNamed:@"essential_icon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"essential_selected_icon.png"]];
+    _essentialNC.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[[UIImage imageNamed:@"bar2"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"barSE2"]];
     _essentialNC.tabBarItem.imageInsets = insets;
     _essentialNC.tabBarItem.title = @"精华";
+    
+    WiKiListViewController *wikiListVC = [[WiKiListViewController alloc] init];
+    _wikiNC = [[UINavigationController alloc] initWithRootViewController:wikiListVC];
+    _wikiNC.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[[UIImage imageNamed:@"bar1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"barSE1"]];
+    _wikiNC.tabBarItem.imageInsets = UIEdgeInsetsMake(1.0, 0.0, -1.0, 0.0);
+    _wikiNC.tabBarItem.title = @"币行情";
     
 //    TopicListContainerViewController *topicListContainerVC = [[TopicListContainerViewController alloc] init];
 //    _forumNC = [[UINavigationController alloc] initWithRootViewController:topicListContainerVC];
@@ -68,23 +77,19 @@
 //    _forumNC.tabBarItem.title = @"消息";
     BSWeiboViewController *topicListContainerVC = [[BSWeiboViewController alloc] init];
     _forumNC = [[UINavigationController alloc] initWithRootViewController:topicListContainerVC];
-    _forumNC.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[[UIImage imageNamed:@"forum_icon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"forum_selected_icon.png"]];
+    _forumNC.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[[UIImage imageNamed:@"bar3"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"barSE3"]];
     _forumNC.tabBarItem.imageInsets = insets;
     _forumNC.tabBarItem.title = @"消息";
     
-    WiKiListViewController *wikiListVC = [[WiKiListViewController alloc] init];
-    _wikiNC = [[UINavigationController alloc] initWithRootViewController:wikiListVC];
-    _wikiNC.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[[UIImage imageNamed:@"wiki_icon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"wiki_selected_icon.png"]];
-    _wikiNC.tabBarItem.imageInsets = UIEdgeInsetsMake(1.0, 0.0, -1.0, 0.0);
-    _wikiNC.tabBarItem.title = @"币行情";
-
-    _meNC = [[UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-    _meNC.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[[UIImage imageNamed:@"me_icon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"me_selected_icon.png"]];
+//    _meNC = [[UIStoryboard storyboardWithName:@"Me" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    MeViewController * meViewVC = [[MeViewController alloc] init];
+    _meNC = [[UINavigationController alloc] initWithRootViewController:meViewVC];
+    _meNC.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[[UIImage imageNamed:@"bar5"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"barSE5"]];
     _meNC.tabBarItem.badgeValue = nil;
     _meNC.tabBarItem.imageInsets = insets;
     _meNC.tabBarItem.title = @"我的";
     
-    NSArray *controllers = @[_wikiNC,_essentialNC, _forumNC, _meNC];
+    NSArray *controllers = @[_essentialNC,_wikiNC, _forumNC, _meNC];
     [self setViewControllers:controllers];
     
 }

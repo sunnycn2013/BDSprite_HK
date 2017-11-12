@@ -7,13 +7,13 @@
 //
 
 #import "BSHeaderView.h"
+#import "WaterView.h"
 
 @interface BSHeaderView ()
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIImageView *iconView;
-
-
+@property (nonatomic, strong) WaterView *waterView;
 @end
 
 @implementation BSHeaderView
@@ -25,22 +25,19 @@
     if (self) {
         //
         [self setUI];
+        self.clipsToBounds = YES;
     }
     return self;
 }
 
 - (void)setUI{
     _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
-    _imageView.image = [UIImage imageNamed:@"head"];
+    _imageView.image = [UIImage imageNamed:@"gerenzhuyebeijing"];
     _imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview:_imageView];
-    
-    _iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-    _iconView.image = [UIImage imageNamed:@"icon"];
-    _iconView.contentMode = UIViewContentModeScaleAspectFill;
-    _iconView.centerX = SCREEN_WIDTH/2;
-    _iconView.y = 40;
-    [self addSubview:_iconView];
+
+//    _waterView = [[WaterView alloc] initWithFrame:CGRectMake(0, self.height - 15, KScreenWidth, 15)];
+//    [self addSubview:_waterView];
 }
 /*
 // Only override drawRect: if you perform custom drawing.
