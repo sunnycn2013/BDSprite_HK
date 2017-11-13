@@ -145,7 +145,10 @@
 		C319BC771FADB7C8005253F0 /* bd_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C319BC761FADB7C8005253F0 /* bd_share@2x.png */; };
 		C319BC7A1FADBCE2005253F0 /* bd_favorite_light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C319BC781FADBCE2005253F0 /* bd_favorite_light@2x.png */; };
 		C319BC7F1FADBE8D005253F0 /* bd_favorite_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C319BC7E1FADBE8C005253F0 /* bd_favorite_normal@2x.png */; };
-		C33FD9211FB7C356003C1A0D /* BDTopicBnnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C33FD9201FB7C356003C1A0D /* BDTopicBnnerCell.m */; };
+		C33155401FB81BCC00FD26CC /* UILabel+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = C331553F1FB81BCC00FD26CC /* UILabel+Size.m */; };
+		C33155421FB834E400FD26CC /* xiaoxi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C33155411FB834E400FD26CC /* xiaoxi@2x.png */; };
+		C33155481FB836E600FD26CC /* BSPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C33155471FB836E600FD26CC /* BSPageControl.m */; };
+		C33FD9211FB7C356003C1A0D /* BDTopicBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C33FD9201FB7C356003C1A0D /* BDTopicBannerCell.m */; };
 		C33FD9261FB7E5E6003C1A0D /* sousuo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C33FD9251FB7E5E6003C1A0D /* sousuo@2x.png */; };
 		C33FD92A1FB7E6BF003C1A0D /* CMSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C33FD9291FB7E6BF003C1A0D /* CMSearchViewController.m */; };
 		C33FD9321FB7ED12003C1A0D /* me_head.png in Resources */ = {isa = PBXBuildFile; fileRef = C33FD92E1FB7ED12003C1A0D /* me_head.png */; };
@@ -481,8 +484,13 @@
 		C319BC761FADB7C8005253F0 /* bd_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bd_share@2x.png"; sourceTree = "<group>"; };
 		C319BC781FADBCE2005253F0 /* bd_favorite_light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bd_favorite_light@2x.png"; sourceTree = "<group>"; };
 		C319BC7E1FADBE8C005253F0 /* bd_favorite_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bd_favorite_normal@2x.png"; sourceTree = "<group>"; };
-		C33FD91F1FB7C356003C1A0D /* BDTopicBnnerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDTopicBnnerCell.h; sourceTree = "<group>"; };
-		C33FD9201FB7C356003C1A0D /* BDTopicBnnerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDTopicBnnerCell.m; sourceTree = "<group>"; };
+		C331553E1FB81BCC00FD26CC /* UILabel+Size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+Size.h"; sourceTree = "<group>"; };
+		C331553F1FB81BCC00FD26CC /* UILabel+Size.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Size.m"; sourceTree = "<group>"; };
+		C33155411FB834E400FD26CC /* xiaoxi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiaoxi@2x.png"; sourceTree = "<group>"; };
+		C33155461FB836E600FD26CC /* BSPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSPageControl.h; sourceTree = "<group>"; };
+		C33155471FB836E600FD26CC /* BSPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSPageControl.m; sourceTree = "<group>"; };
+		C33FD91F1FB7C356003C1A0D /* BDTopicBannerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDTopicBannerCell.h; sourceTree = "<group>"; };
+		C33FD9201FB7C356003C1A0D /* BDTopicBannerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDTopicBannerCell.m; sourceTree = "<group>"; };
 		C33FD9251FB7E5E6003C1A0D /* sousuo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sousuo@2x.png"; sourceTree = "<group>"; };
 		C33FD9281FB7E6BF003C1A0D /* CMSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMSearchViewController.h; sourceTree = "<group>"; };
 		C33FD9291FB7E6BF003C1A0D /* CMSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMSearchViewController.m; sourceTree = "<group>"; };
@@ -1159,6 +1167,8 @@
 				C3AD1DB31F7293AE0063D3BA /* BSWebViewController.m */,
 				C33FD9441FB8049B003C1A0D /* BDSpriteContext.h */,
 				C33FD9451FB8049B003C1A0D /* BDSpriteContext.m */,
+				C331553E1FB81BCC00FD26CC /* UILabel+Size.h */,
+				C331553F1FB81BCC00FD26CC /* UILabel+Size.m */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -1582,6 +1592,7 @@
 			isa = PBXGroup;
 			children = (
 				C33FD9251FB7E5E6003C1A0D /* sousuo@2x.png */,
+				C33155411FB834E400FD26CC /* xiaoxi@2x.png */,
 				C358DFF61F8F04A7008A1A8F /* images */,
 				C36F21AD1F5BEE750003B7C5 /* EssentialListViewController.h */,
 				C36F21AE1F5BEE750003B7C5 /* EssentialListViewController.m */,
@@ -1614,12 +1625,14 @@
 		C36F21B51F5BEE750003B7C5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C33155461FB836E600FD26CC /* BSPageControl.h */,
+				C33155471FB836E600FD26CC /* BSPageControl.m */,
 				C36F21B61F5BEE750003B7C5 /* BSTopicCell.h */,
 				C36F21B71F5BEE750003B7C5 /* BSTopicCell.m */,
 				B044EFA31F776B1500538FBF /* BSBottomView.h */,
 				B044EFA41F776B1500538FBF /* BSBottomView.m */,
-				C33FD91F1FB7C356003C1A0D /* BDTopicBnnerCell.h */,
-				C33FD9201FB7C356003C1A0D /* BDTopicBnnerCell.m */,
+				C33FD91F1FB7C356003C1A0D /* BDTopicBannerCell.h */,
+				C33FD9201FB7C356003C1A0D /* BDTopicBannerCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1982,6 +1995,7 @@
 				C319BC7F1FADBE8D005253F0 /* bd_favorite_normal@2x.png in Resources */,
 				C33FD9321FB7ED12003C1A0D /* me_head.png in Resources */,
 				C39ED5CC1F76A1C700BA3478 /* socal.geojson in Resources */,
+				C33155421FB834E400FD26CC /* xiaoxi@2x.png in Resources */,
 				56C0A39C1BD224780042E302 /* PushConfig.example.plist in Resources */,
 				B044EFA01F7763D100538FBF /* aa.jpg in Resources */,
 				C358E0081F8F04A8008A1A8F /* 11.jpeg in Resources */,
@@ -2208,6 +2222,7 @@
 				C3A8B5251FA8A68B00AD9610 /* BDCoinItemModel.m in Sources */,
 				C36ED7111F57DA6400048BFC /* BDBaseAPI.m in Sources */,
 				C3A8B5321FA8BA0800AD9610 /* BDCoinDetailMarketCell.m in Sources */,
+				C33155481FB836E600FD26CC /* BSPageControl.m in Sources */,
 				565218101BB69F8200412E60 /* NotificationListViewController.m in Sources */,
 				5618687C1BBF618300E9E111 /* TOWebViewController.m in Sources */,
 				C36ED72B1F58F89100048BFC /* BSBaseViewController.m in Sources */,
@@ -2220,7 +2235,7 @@
 				5618687D1BBF618300E9E111 /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				C377454F1F7A81210081415A /* BSLocalCacheDefine.m in Sources */,
 				C3A8B5281FA8B0FA00AD9610 /* BDCoinDetailHeaderCell.m in Sources */,
-				C33FD9211FB7C356003C1A0D /* BDTopicBnnerCell.m in Sources */,
+				C33FD9211FB7C356003C1A0D /* BDTopicBannerCell.m in Sources */,
 				C33FD9391FB7F9A8003C1A0D /* BDShowInfoViewController.m in Sources */,
 				56D8F0901BB009C500242FA9 /* BaseTabBarViewController.m in Sources */,
 				5679BABC1BD485D800AA9928 /* SkipButton.m in Sources */,
@@ -2306,6 +2321,7 @@
 				565218451BBA7CC500412E60 /* NotificationListCell.m in Sources */,
 				56D8F0A81BB0F54300242FA9 /* UserEntity.m in Sources */,
 				56D8F0A21BB0ED5E00242FA9 /* TopicApi.m in Sources */,
+				C33155401FB81BCC00FD26CC /* UILabel+Size.m in Sources */,
 				565CE81F1BB29ED0001680D2 /* CategoryEntity.m in Sources */,
 				C36F21BC1F5BEE750003B7C5 /* BSTopicCell.m in Sources */,
 				C37745531F7A88270081415A /* BSCacheManager.m in Sources */,
@@ -2381,8 +2397,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BDSprite/BDSprite.entitlements;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xuzhao jia (PK6Q2M3TFF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xuzhao jia (PK6Q2M3TFF)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
@@ -2561,8 +2577,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BDSprite/BDSprite.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xuzhao jia (PK6Q2M3TFF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xuzhao jia (PK6Q2M3TFF)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PK6Q2M3TFF;
 				ENABLE_BITCODE = NO;
@@ -2632,8 +2648,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BDSprite/BDSprite.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Chaoyang Guo (KGM644AULJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xuzhao jia (PK6Q2M3TFF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xuzhao jia (PK6Q2M3TFF)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PK6Q2M3TFF;
 				ENABLE_BITCODE = NO;

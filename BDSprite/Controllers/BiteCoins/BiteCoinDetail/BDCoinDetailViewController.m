@@ -16,6 +16,7 @@
 
 #import "BDCoinHeadView.h"
 #import "UMengSocialHandler.h"
+#import "BSCacheManager.h"
 
 @interface BDCoinDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -50,12 +51,14 @@
     [self.tableView reloadData];
     
     UIButton * favButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    favButton.frame = CGRectMake(0, 0, 24, 24);
     [favButton setImage:[UIImage imageNamed:@"bd_favorite_normal"] forState:UIControlStateNormal];
 //    [favButton setImage:[UIImage imageNamed:@"bd_favorite_light"] forState:UIControlStateNormal];
     [favButton addTarget:self action:@selector(enjoyBiteCoin:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem * favButtonBar = [[UIBarButtonItem alloc] initWithCustomView:favButton];
     
     UIButton * rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.frame = CGRectMake(0, 0, 24, 24);
     [rightButton setImage:[UIImage imageNamed:@"bd_share"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem * rightBar = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
@@ -74,6 +77,8 @@
 - (void)enjoyBiteCoin:(UIBarButtonItem *)sender
 {
     [SVProgressHUD showInfoWithStatus:@"关注成功！"];
+    NSString * key = self.model.coin_id ? : @"tem";
+    [[BSCacheManager sharedCache] saveFavouriteNews:self.model key:key];
 }
 
 - (void)didReceiveMemoryWarning {

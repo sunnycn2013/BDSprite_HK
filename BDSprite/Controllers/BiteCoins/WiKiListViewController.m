@@ -37,9 +37,9 @@
     self.pageIndex = 1;
     self.loading = NO;
     [self.view addSubview:self.categoryView];
-
     self.tableView.mj_header = self.refreashHeader;
     self.tableView.mj_footer = self.refreashFooter;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[BSCoinCell class] forCellReuseIdentifier:@"BSCoinCell"];
     [self.view addSubview:self.tableView];
     [self coinCategoryView:nil didTapedAtIndex:0];
@@ -51,21 +51,35 @@
     self.tableView.frame = CGRectMake(0, _categoryView.bottom, SCREEN_WIDTH, KScreenHeight);
     
     UIButton * leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame = CGRectMake(0, 0, 24, 24);
     [leftButton setImage:[UIImage imageNamed:@"sousuo"] forState:UIControlStateNormal];
     [leftButton addTarget:self action:@selector(openSearchVC:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem * leftBar = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     [self.navigationItem setLeftBarButtonItem:leftBar];
     
     UIButton * rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.frame = CGRectMake(0, 0, 24, 24);
     [rightButton setImage:[UIImage imageNamed:@"bd_share"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem * rightBar = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     [self.navigationItem setRightBarButtonItem:rightBar];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [SVProgressHUD dismiss];
+}
+
 - (void)openSearchVC:(UIBarButtonItem *)sender
 {
     CMSearchViewController * search = [[CMSearchViewController alloc] init];
+    search.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:search animated:YES];
 }
 
@@ -148,17 +162,13 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kIPhone6PScale(63);
+    return kIPhone6PScale(70);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    BSCoinModel * model = [self.coinViewModel.coins objectAtIndex:indexPath.row];
-//    NSDictionary * params = @{
-//                              @"tagname" : model.coin_id ? : @""
-//                              };
-//    [JumpToOtherVCHandler jumpToWebVCWithUrlString:model.jumpURL params:params];
-    BDCoinDetailViewController * detail = [[BDCoinDetailViewController alloc] init];
+    BSCoinModel * model = [self.coinViewModel.coins objectAtIndex:indexPath.row];
+    BDCoinDetailViewController * detail = [[BDCoinDetailViewController alloc] initWithModel:model];
     detail.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detail animated:YES];
 }
@@ -192,7 +202,7 @@
 - (BSCoinCategoryView *)categoryView
 {
     if (!_categoryView) {
-        _categoryView = [[BSCoinCategoryView alloc] initWithFrame:CGRectMake(0, 64, KScreenWidth, 44)];
+        _categoryView = [[BSCoinCategoryView alloc] initWithFrame:CGRectMake(0, 64, KScreenWidth, 38)];
         _categoryView.userInteractionEnabled = YES;
         _categoryView.delegate = self;
         _categoryView.backgroundColor = [UIColor whiteColor];

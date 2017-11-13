@@ -172,13 +172,22 @@
 {
     if (model.type == BDMeItemTypeAbout) {
         BDAboutViewController * about = [[BDAboutViewController alloc] init];
+        about.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:about animated:YES];
         return;
     }
     
     if (model.type == BDMeItemTypeJoinWeiXin) {
         BDJoninWeixinViewController * weixin = [[BDJoninWeixinViewController alloc] init];
+        weixin.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:weixin animated:YES];
+        return;
+    }
+    
+    if (model.type == BDMeItemTypeHistory) {
+        BSLocalPageViewController * history = [[BSLocalPageViewController alloc] initWithStyle:BSLocalPageTypeFavourite];
+        history.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:history animated:YES];
         return;
     }
 }

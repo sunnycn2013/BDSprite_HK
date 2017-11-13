@@ -120,6 +120,11 @@
         self.detailLabel.hidden = YES;
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    else if(style == BDMeItemTypeHistory){
+        self.switchOff.hidden = YES;
+        self.detailLabel.hidden = NO;
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
 }
 
 - (void)clearText

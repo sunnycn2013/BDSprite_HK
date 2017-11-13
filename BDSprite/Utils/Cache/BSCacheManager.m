@@ -68,12 +68,12 @@
 
 - (NSDictionary *)getHisStoryInfo
 {
-    return [self.hisStory copy];
+    return self.hisStory;
 }
 
 - (NSDictionary *)getFavourutesInfo
 {
-    return [self.favourutes copy];
+    return self.favourutes;
 }
 
 @end

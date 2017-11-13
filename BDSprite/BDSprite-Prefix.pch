@@ -40,6 +40,8 @@
 #import <Masonry/Masonry.h>
 #import "BDSpriteContext.h"
 
+#import "UILabel+Size.h"
+
 #define DidTapStatusBar @"DidTapStatusBar"
 
 

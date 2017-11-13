@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BSBaseViewController.h"
+#import "BDCoinDetailViewController.h"
 
 typedef NS_ENUM(NSInteger, BSLocalPageType){
     BSLocalPageTypeHistory = 0,

@@ -17,6 +17,8 @@
              @"time" : @"update_time"
              };
 }
+
+MJCodingImplementation
 @end
 
 @implementation BSCoinModel
@@ -28,7 +30,6 @@
              @"time" : @"update_time"
              };
 }
-
 
 - (NSString *)timeStr
 {
@@ -49,9 +50,9 @@
     NSString * str = @"%";
     double price = [_percent doubleValue];
     if (price > 0) {
-        str = [NSString stringWithFormat:@"+ %.2f%@",price,str];
+        str = [NSString stringWithFormat:@"涨幅 + %.2f%@",price,str];
     }else{
-        str = [NSString stringWithFormat:@"%.2f%@",price,str];
+        str = [NSString stringWithFormat:@"涨幅 %.2f%@",price,str];
     }
     return str;
 }
@@ -65,4 +66,7 @@
 {
     return [_turnvolume doubleValue] / 10000.0;
 }
+
+MJCodingImplementation
+
 @end

@@ -28,6 +28,8 @@
 @property (nonatomic, strong) NSDate *updatedAt;
 @property (nonatomic, strong) NSString *updatimeStr;
 
+@property (nonatomic, strong) NSArray *banners;
+
 @end
 
 @interface BSTopicModel : NSObject

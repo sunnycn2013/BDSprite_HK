@@ -12,18 +12,18 @@
 #import <Masonry/Masonry.h>
 #import "UserProfileViewController.h"
 
-static CGFloat topicListCellAvatarHeight = 18;
-
 @interface BSCoinCell ()
-@property (nonatomic, strong) UILabel *platformLabel;
+
+@property (nonatomic, strong) UIView  *noteView;
+
 @property (nonatomic, strong) UILabel *coinNameLabel;
-@property (nonatomic, strong) UILabel *tradingNumLabel;
-
-
+@property (nonatomic, strong) UILabel *coinNameTagLabel;
 @property (nonatomic, strong) UILabel *currentPriceLabel;
-//@property (nonatomic, strong) UILabel *currentPriceLabel;
 
 @property (nonatomic, strong) UILabel *percentLabel;
+@property (nonatomic, strong) UILabel *dollorPriceLabel;
+
+@property (nonatomic, strong) CALayer *lineLayer;
 
 @property (nonatomic, assign) BOOL didSetupConstraints;
 @end
@@ -41,14 +41,16 @@ static CGFloat topicListCellAvatarHeight = 18;
 
 - (void)setUI
 {
-    [self.contentView addSubview:self.platformLabel];
+    [self.contentView addSubview:self.noteView];
     [self.contentView addSubview:self.coinNameLabel];
-    [self.contentView addSubview:self.tradingNumLabel];
+    [self.contentView addSubview:self.coinNameTagLabel];
 
     [self.contentView addSubview:self.currentPriceLabel];
     [self.contentView addSubview:self.percentLabel];
-    
-//    [self.contentView addSubview:self.focuSwitch];
+    [self.contentView addSubview:self.dollorPriceLabel];
+
+    [self.contentView.layer addSublayer:self.lineLayer];
+//    self.contentView.backgroundColor = [UIColor redColor];
 }
 
 - (void)awakeFromNib {
@@ -61,20 +63,31 @@ static CGFloat topicListCellAvatarHeight = 18;
     // Configure the view for the selected state
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    CGSize coinNameSize = [self.coinNameLabel boundOfSize];
+    self.lineLayer.frame = CGRectMake(0, self.height-1,KScreenWidth, 0.5);
+    self.coinNameLabel.width = coinNameSize.width;
+    self.coinNameTagLabel.frame = CGRectMake(_coinNameLabel.right+kIPhone6PScale(4),_noteView.top+kIPhone6PScale(7), kIPhone6PScale(33), kIPhone6PScale(12));
+}
+
 - (void)setCoinInfo:(BSCoinModel *)coinInfo
 {
+    if (![coinInfo isKindOfClass:[BSCoinModel class]]) {
+        return;
+    }
     _coinInfo = coinInfo;
-    _platformLabel.text = [NSString stringWithFormat:@"%@, %@",_coinInfo.platform,_coinInfo.chinesename];
+    _coinNameTagLabel.text = [NSString stringWithFormat:@"%@",_coinInfo.englishname];
     _coinNameLabel.text = [NSString stringWithFormat:@"%@ - %@",_coinInfo.chinesename,_coinInfo.englishname];
-    _currentPriceLabel.text = [NSString stringWithFormat:@"价格$: %@",_coinInfo.price];
+    _currentPriceLabel.text = [NSString stringWithFormat:@"¥: %@",_coinInfo.price];
     _percentLabel.text = _coinInfo.percentStr;
-//    _tradingNumLabel.text = @"量(24h)6190456.90万";
-    _tradingNumLabel.text = [NSString stringWithFormat:@"量(24h)$: %.2f万",_coinInfo.marketValue];
+    _dollorPriceLabel.text = [NSString stringWithFormat:@"$: %.2f万",_coinInfo.marketValue];
 
     if ([_coinInfo.percent doubleValue] > 0) {
-        _percentLabel.backgroundColor = [UIColor colorWithHexString:@"#CF021B"];
+        _percentLabel.textColor = [UIColor colorWithHexString:@"#F55152"];
     }else{
-        _percentLabel.backgroundColor = [UIColor colorWithHexString:@"#1CAB1A"];
+        _percentLabel.textColor = [UIColor colorWithHexString:@"#1CAB1A"];
     }
 }
 
@@ -88,45 +101,44 @@ static CGFloat topicListCellAvatarHeight = 18;
     }
 }
 #pragma mark- set get
-
-- (UILabel *)platformLabel
+- (UIView *)noteView
 {
-    if (!_platformLabel) {
-        _platformLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, kIPhone6PScale(6), kIPhone6PScale(140), kIPhone6PScale(13))];
-        _platformLabel.font = [UIFont fontWithName:FontName size:10];
-        _platformLabel.text = @"Poloniex, 以太币";
-        _platformLabel.textColor = [UIColor lightGrayColor];
+    if (!_noteView) {
+        _noteView = [[UIView alloc] initWithFrame:CGRectMake(14, 10, 4, 45)];
+        _noteView.backgroundColor = [UIColor colorWithHexString:@"#F55152"];
     }
-    return _platformLabel;
+    return _noteView;
 }
 
 - (UILabel *)coinNameLabel {
     if (!_coinNameLabel) {
-        _coinNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(13,_platformLabel.bottom + kIPhone6PScale(4), kIPhone6PScale(140), kIPhone6PScale(18))];
+        _coinNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(_noteView.right+ kIPhone6PScale(4),_noteView.top+kIPhone6PScale(2), kIPhone6PScale(140), kIPhone6PScale(18))];
         _coinNameLabel.font = [UIFont fontWithName:BoldFontName size:14];
+        _coinNameLabel.textColor = [UIColor colorWithHexString:@"#212A3D"];
         _coinNameLabel.text = @"BTC/USDT";
     }
     return _coinNameLabel;
 }
 
-- (UILabel *)tradingNumLabel
+- (UILabel *)coinNameTagLabel
 {
-    if (!_tradingNumLabel) {
-        _tradingNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(13,_coinNameLabel.bottom+ kIPhone6PScale(4), kIPhone6PScale(140), kIPhone6PScale(13))];
-        _tradingNumLabel.font = [UIFont fontWithName:FontName size:10];
-        _tradingNumLabel.text = @"量(24h)6190456.90万";
-        _tradingNumLabel.textColor = [UIColor lightGrayColor];
+    if (!_coinNameTagLabel) {
+        _coinNameTagLabel = [[UILabel alloc] initWithFrame:CGRectMake(_coinNameLabel.right+kIPhone6PScale(4),_noteView.top+kIPhone6PScale(7), kIPhone6PScale(33), kIPhone6PScale(12))];
+        _coinNameTagLabel.font = [UIFont fontWithName:FontName size:10];
+        _coinNameTagLabel.text = @"Poloniex";
+        _coinNameTagLabel.textColor = [UIColor lightGrayColor];
     }
-    return _tradingNumLabel;
+    return _coinNameTagLabel;
 }
 
 - (UILabel *)currentPriceLabel
 {
     if (!_currentPriceLabel) {
-        _currentPriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(KScreenWidth-95-kIPhone6PScale(81), kIPhone6PScale(18), kIPhone6PScale(81), 25)];
-        _currentPriceLabel.font = [UIFont fontWithName:FontName size:12];
+        CGFloat marginLeft = KScreenWidth-15-kIPhone6PScale(120);
+        _currentPriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(marginLeft, _noteView.top+kIPhone6PScale(5), kIPhone6PScale(120), kIPhone6PScale(18))];
+        _currentPriceLabel.font = [UIFont boldSystemFontOfSize:16];
         _currentPriceLabel.adjustsFontSizeToFitWidth = YES;
-        _currentPriceLabel.textColor = [UIColor blackColor];
+        _currentPriceLabel.textColor = [UIColor colorWithHexString:@"#4D536C"];
         _currentPriceLabel.textAlignment = NSTextAlignmentRight;
         _currentPriceLabel.text = @"4,312";
     }
@@ -136,17 +148,35 @@ static CGFloat topicListCellAvatarHeight = 18;
 - (UILabel *)percentLabel
 {
     if (!_percentLabel) {
-        _percentLabel = [[UILabel alloc] initWithFrame:CGRectMake(KScreenWidth-85, kIPhone6PScale(18), kIPhone6PScale(71), 25)];
-        _percentLabel.font = [UIFont fontWithName:BoldFontName size:12];
-        _percentLabel.adjustsFontSizeToFitWidth = YES;
-        _percentLabel.text = @"+0.51%";
-        _percentLabel.textAlignment = NSTextAlignmentCenter;
-        _percentLabel.textColor = [UIColor whiteColor];
-        _percentLabel.layer.cornerRadius = 4.0;
-        _percentLabel.layer.masksToBounds = YES;
-        _percentLabel.backgroundColor = [UIColor redColor];
+        _percentLabel = [[UILabel alloc] initWithFrame:CGRectMake(_coinNameLabel.left, _noteView.top+kIPhone6PScale(30), kIPhone6PScale(130), kIPhone6PScale(18))];
+        _percentLabel.font = [UIFont systemFontOfSize:12];
+        _percentLabel.text = @"涨幅  +0.51%";
+        _percentLabel.textAlignment = NSTextAlignmentLeft;
+        _percentLabel.textColor = [UIColor colorWithHexString:@"#F55152"];
     }
     return _percentLabel;
+}
+
+- (UILabel *)dollorPriceLabel
+{
+    if (!_dollorPriceLabel) {
+        _dollorPriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(_currentPriceLabel.left,_coinNameLabel.bottom+ kIPhone6PScale(11), kIPhone6PScale(120), kIPhone6PScale(13))];
+        _dollorPriceLabel.font = [UIFont fontWithName:FontName size:10];
+        _dollorPriceLabel.text = @"量(24h)6190456.90万";
+        _dollorPriceLabel.textColor = [UIColor lightGrayColor];
+        _dollorPriceLabel.textAlignment = NSTextAlignmentRight;
+    }
+    return _dollorPriceLabel;
+}
+
+- (CALayer *)lineLayer
+{
+    if (!_lineLayer) {
+        _lineLayer = [[CALayer alloc] init];
+        _lineLayer.frame = CGRectMake(0, self.height-1,KScreenWidth, 0.5);
+        _lineLayer.backgroundColor = [UIColor colorWithHexString:@"#E8E8E8"].CGColor;
+    }
+    return _lineLayer;
 }
 
 #pragma mark Tap User Avatar

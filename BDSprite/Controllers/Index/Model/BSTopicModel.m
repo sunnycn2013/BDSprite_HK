@@ -9,12 +9,6 @@
 #import "BSTopicModel.h"
 
 @implementation BSTopicInfo
-
-//id = 64;
-//"new_type" = 2;
-//title = "\U9ec4\U5c0f\U7eb2\Uff1a\U533a\U5757\U94fe\U6280\U672f\U63a8\U52a8\U5927\U4e2d\U534e\U7248\U6743\U786e\U7acb";
-//"update_time" = 1504178393000;
-//url = "http://www.btc38.com/news/2017/8/15243.html";
 + (NSDictionary *)mj_replacedKeyFromPropertyName
 {
     return @{

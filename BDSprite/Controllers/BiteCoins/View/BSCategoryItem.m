@@ -26,6 +26,11 @@
     [self setStyle:BSCategoryItemStyleNormal];
 }
 
+//- (void)layoutSubviews
+//{
+//    [super layoutSubviews];
+//}
+
 - (void)setTitle:(NSString *)title
 {
     [_bgButton setTitle:title forState:UIControlStateNormal];
@@ -36,7 +41,7 @@
 {
     if (style == BSCategoryItemStyleSelected) {
         [UIView animateWithDuration:0.2 animations:^{
-            self.indicatorView.backgroundColor = [UIColor blueColor];
+            self.indicatorView.backgroundColor = [UIColor colorWithHexString:@"#4979B4"];
         }];
     }else if (style == BSCategoryItemStyleNormal){
         [UIView animateWithDuration:0.2 animations:^{
@@ -60,7 +65,7 @@
         CGFloat  height = 44;
         _bgButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _bgButton.frame = CGRectMake(0, 0, width, height);
-        _bgButton.titleLabel.font = [UIFont systemFontOfSize:kIPhone6PScale(14)];
+        _bgButton.titleLabel.font = [UIFont systemFontOfSize:kIPhone6PScale(16)];
         _bgButton.userInteractionEnabled = YES;
         [_bgButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [_bgButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -71,9 +76,9 @@
 - (UIView *)indicatorView
 {
     if (!_indicatorView) {
-        CGFloat  width = 60;
-        _indicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 41, width, 3)];
-        _indicatorView.backgroundColor = [UIColor blueColor];
+        CGFloat  width = 30;
+        _indicatorView = [[UIView alloc] initWithFrame:CGRectMake(15, 37, width, 3)];
+        _indicatorView.backgroundColor = [UIColor colorWithHexString:@"#4979B4"];
     }
     return _indicatorView;
 }

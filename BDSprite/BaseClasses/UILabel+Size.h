@@ -1,5 +1,5 @@
 //
-//  BDTopicBnnerCell.h
+//  UILabel+Size.h
 //  BDSprite
 //
 //  Created by alibaba on 2017/11/12.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BDTopicBnnerCell : UITableViewCell
+@interface UILabel(sizing)
+
+- (CGSize)boundOfSize;
 
 @end

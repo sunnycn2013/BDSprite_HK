@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger,BDMeItemType){
     BDMeItemTypeDefault = 0,
     BDMeItemTypeSwitch,
     BDMeItemTypeText,
+    BDMeItemTypeHistory,
     BDMeItemTypeCache,
     BDMeItemTypeEvaluation,
     BDMeItemTypeAbout,

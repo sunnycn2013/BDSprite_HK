@@ -15,6 +15,7 @@
 
 @property (nonatomic,strong) UIScrollView * scrollView;
 @property (nonatomic,strong) NSArray * data;
+@property (nonatomic,strong) CALayer *lineLayer;
 
 @end
 
@@ -31,12 +32,14 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.scrollView.frame = CGRectMake(0, 0, self.width, self.height);
+    self.scrollView.frame = CGRectMake(0, 0, self.width, self.height-1);
+    self.lineLayer.frame = CGRectMake(0, self.height - 1,KScreenWidth, 0.5);
 }
 
 - (void)initData
 {
     [self addSubview:self.scrollView];
+    [self.layer addSublayer:self.lineLayer];
 }
 
 - (void)reloadData
@@ -119,4 +122,13 @@
     return _scrollView;
 }
 
+- (CALayer *)lineLayer
+{
+    if (!_lineLayer) {
+        _lineLayer = [[CALayer alloc] init];
+        _lineLayer.frame = CGRectMake(0, self.height - 1,KScreenWidth, 0.5);
+        _lineLayer.backgroundColor = [UIColor colorWithHexString:@"#E8E8E8"].CGColor;
+    }
+    return _lineLayer;
+}
 @end

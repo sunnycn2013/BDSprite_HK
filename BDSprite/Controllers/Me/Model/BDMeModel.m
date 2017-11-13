@@ -27,6 +27,11 @@
     BDMeGroupModel * group01 = [[BDMeGroupModel alloc] init];
     group01.headHeight = 10;
     
+    BDMeItemModel * item00 = [[BDMeItemModel alloc] init];
+    item00.title = @"我的关注";
+    item00.type = BDMeItemTypeHistory;
+    item00.showText = @"关注历史";
+    
     BDMeItemModel * item01 = [[BDMeItemModel alloc] init];
     item01.title = @"红绿涨跌";
     item01.type = BDMeItemTypeSwitch;
@@ -34,7 +39,7 @@
     BDMeItemModel * item02 = [[BDMeItemModel alloc] init];
     item02.title = @"给我评价";
     item02.type = BDMeItemTypeEvaluation;
-    group01.sections = [NSMutableArray arrayWithArray:@[item01,item02]];
+    group01.sections = [NSMutableArray arrayWithArray:@[item00,item01,item02]];
     
     BDMeGroupModel * group02 = [[BDMeGroupModel alloc] init];
     group02.headHeight = 30;

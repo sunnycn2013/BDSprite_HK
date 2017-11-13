@@ -7,8 +7,8 @@
 //
 
 #import "BSLocalPageViewController.h"
-#import "BSTopicCell.h"
 #import "BSCacheManager.h"
+#import "BSCoinCell.h"
 
 @interface BSLocalPageViewController ()
 
@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     self.title = @"浏览历史";
-    [self.tableView registerClass:[BSTopicCell class] forCellReuseIdentifier:@"BSTopicCell"];
+    [self.tableView registerClass:[BSCoinCell class] forCellReuseIdentifier:@"BSCoinCell"];
     [self.view addSubview:self.tableView];
     if (self.style == BSLocalPageTypeHistory) {
         self.data = [[BSCacheManager sharedCache] getHisStoryInfo];
@@ -56,22 +56,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * cellIdentifier = @"BSTopicCell";
-    BSTopicCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    NSString * key = [self.keys objectAtIndex:indexPath.row];
-    BSTopicInfo * model = [BSTopicInfo mj_objectWithKeyValues:[self.data objectForKey:key]];
-    cell.topicInfo = model;
+    static NSString * cellIdentifier = @"BSCoinCell";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell) {
+        NSString * key = [self.keys objectAtIndex:indexPath.row];
+        BSCoinModel * model = [self.data objectForKey:key];
+        [(BSCoinCell *)cell setCoinInfo:model];
+    }else{
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellIdentifier"];
+    }
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kIPhone6PScale(112);
+    return kIPhone6PScale(70);
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     NSString * key = [self.keys objectAtIndex:indexPath.row];
-    BSTopicInfo * model = [BSTopicInfo mj_objectWithKeyValues:[self.data objectForKey:key]];
-    [JumpToOtherVCHandler jumpToWebVCWithUrlString:model.topicContentUrl];
+    BSCoinModel * model = [self.data objectForKey:key];
+    BDCoinDetailViewController * detail = [[BDCoinDetailViewController alloc] initWithModel:model];
+    detail.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 @end

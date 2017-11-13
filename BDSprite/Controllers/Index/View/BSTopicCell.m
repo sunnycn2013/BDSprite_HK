@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UILabel *topicInfoLabel;
 @property (nonatomic, strong) UILabel *topicRepliesCountLabel;
 @property (nonatomic, strong) UIImageView *avatarImageView;
+@property (nonatomic, strong) CALayer *lineLayer;
 @property (nonatomic, assign) BOOL didSetupConstraints;
 
 @end
@@ -35,12 +36,16 @@
     [self.contentView addSubview:self.avatarImageView];
     [self.contentView addSubview:self.topicTitleLabel];
     [self.contentView addSubview:self.topicInfoLabel];
+    [self.layer addSublayer:self.lineLayer];
 //    [self.contentView addSubview:self.topicRepliesCountLabel];
 }
 
-
 - (void)setTopicInfo:(BSTopicInfo *)topicInfo
 {
+    if(![topicInfo isKindOfClass:[BSTopicInfo class]])
+    {
+        return;
+    }
     _topicInfo = topicInfo;
     
 //    NSArray * imageURLs = @[@"http://ow00jnv2q.bkt.clouddn.com/distribution_chart.png",
@@ -82,7 +87,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-
+    self.lineLayer.frame = CGRectMake(0, self.height-1,KScreenWidth, 0.5);
     self.topicTitleLabel.frame = CGRectMake(13, 10, kIPhone6PScale(240), kIPhone6PScale(84));
     self.topicInfoLabel.frame = CGRectMake(13, _topicTitleLabel.bottom,_topicTitleLabel.width, kIPhone6PScale(17));
     self.avatarImageView.frame = CGRectMake(_topicInfoLabel.right+kIPhone6PScale(13),10, kIPhone6PScale(126), kIPhone6PScale(82));
@@ -132,6 +137,16 @@
         _avatarImageView.clipsToBounds = YES;
     }
     return _avatarImageView;
+}
+
+- (CALayer *)lineLayer
+{
+    if (!_lineLayer) {
+        _lineLayer = [[CALayer alloc] init];
+        _lineLayer.frame = CGRectMake(0, self.height-1,KScreenWidth, 0.5);
+        _lineLayer.backgroundColor = [UIColor colorWithHexString:@"#E8E8E8"].CGColor;
+    }
+    return _lineLayer;
 }
 
 #pragma mark Tap User Avatar
