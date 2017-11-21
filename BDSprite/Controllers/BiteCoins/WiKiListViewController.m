@@ -30,6 +30,11 @@
 @end
 
 @implementation WiKiListViewController
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -63,6 +68,8 @@
     [rightButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem * rightBar = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     [self.navigationItem setRightBarButtonItem:rightBar];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeChanged:) name:BDGlobalThemeChangedNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -190,6 +197,13 @@
     [self fetchFirstPageDataSource];
 }
 
+- (void)themeChanged:(NSNotification *)noti
+{
+    __weak typeof(self) weakself = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakself.tableView reloadData];
+    });
+}
 #pragma mark - set get
 - (BSCoinViewModel *)coinViewModel
 {

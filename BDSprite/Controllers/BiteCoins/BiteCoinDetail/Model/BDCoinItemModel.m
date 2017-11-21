@@ -8,10 +8,14 @@
 
 #import "BDCoinItemModel.h"
 
-NSString * const BDCoinFloorHeader = @"coin_floor_header";
-NSString * const BDCoinFloorInfo   = @"coin_floor_infomation";
-NSString * const BDCoinFloorUniversal   = @"coin_floor_universal";
-NSString * const BDCoinFloorMaket       = @"coin_floor_market";
+NSString * BDCoinFloorHeader = @"coin_floor_header";
+NSString * BDCoinFloorInfo   = @"coin_floor_infomation";
+NSString * BDCoinFloorUniversal   = @"coin_floor_universal";
+NSString * BDCoinFloorMaket       = @"coin_floor_market";
+
+NSString * BDCoinFloorRank       = @"coin_floor_rank";
+NSString * BDCoinFloorVol       = @"coin_floor_vol";
+NSString * BDCoinFloorCirculation = @"coin_floor_circulation";
 
 @implementation BDCoinItemModel
 
@@ -20,13 +24,21 @@ NSString * const BDCoinFloorMaket       = @"coin_floor_market";
     if ([self.patton isEqualToString:BDCoinFloorHeader]) {
         return 130.0;
     }else if ([self.patton isEqualToString:BDCoinFloorInfo]){
-        return 100.0;
+        return 110.0;
     }else if ([self.patton isEqualToString:BDCoinFloorUniversal]){
         return 40.0;
     }else if ([self.patton isEqualToString:BDCoinFloorMaket]){
         return 50.0;
+    }else if ([self.patton isEqualToString:BDCoinFloorRank]){
+        return 40.0;
+    }else if ([self.patton isEqualToString:BDCoinFloorVol]){
+        return 40.0;
+    }else if ([self.patton isEqualToString:BDCoinFloorCirculation]){
+        return 40.0;
     }
     return 100.0;
 }
+
+MJCodingImplementation
 
 @end

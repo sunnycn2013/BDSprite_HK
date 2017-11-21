@@ -70,6 +70,7 @@
     self.switchOff.on = (![BDSpriteContext sharedInstance].isDesRed);
     [SVProgressHUD showSuccessWithStatus:@"切换成功"];
     [BDSpriteContext sharedInstance].isDesRed = (![BDSpriteContext sharedInstance].isDesRed);
+    [[NSNotificationCenter defaultCenter] postNotificationName:BDGlobalThemeChangedNotification object:nil];
     if (self.tapBlock) {
         self.tapBlock(self.item, self);
     }

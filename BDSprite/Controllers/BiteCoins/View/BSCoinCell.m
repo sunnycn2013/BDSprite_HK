@@ -11,6 +11,7 @@
 
 #import <Masonry/Masonry.h>
 #import "UserProfileViewController.h"
+#import "BDSpriteContext.h"
 
 @interface BSCoinCell ()
 
@@ -84,10 +85,23 @@
     _percentLabel.text = _coinInfo.percentStr;
     _dollorPriceLabel.text = [NSString stringWithFormat:@"$: %.2f万",_coinInfo.marketValue];
 
-    if ([_coinInfo.percent doubleValue] > 0) {
-        _percentLabel.textColor = [UIColor colorWithHexString:@"#F55152"];
+    BOOL isRise = [BDSpriteContext sharedInstance].isDesRed;
+    UIColor * riseColor = nil;
+    UIColor * dropColor = nil;
+    if (isRise) {
+        riseColor = [UIColor colorWithHexString:@"#F55152"];
+        dropColor = [UIColor colorWithHexString:@"#1CAB1A"];
     }else{
-        _percentLabel.textColor = [UIColor colorWithHexString:@"#1CAB1A"];
+        riseColor = [UIColor colorWithHexString:@"#1CAB1A"];
+        dropColor = [UIColor colorWithHexString:@"#F55152"];
+    }
+
+    if ([_coinInfo.percent doubleValue] > 0) {
+        _percentLabel.textColor = riseColor;
+        _noteView.backgroundColor = riseColor;
+    }else{
+        _percentLabel.textColor = dropColor;
+        _noteView.backgroundColor = dropColor;
     }
 }
 

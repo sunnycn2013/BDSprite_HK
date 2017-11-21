@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BDCoinDataProtocol.h"
+#import "BSCoinModel.h"
 
 @interface BDCoinDetailHeaderCell : UITableViewCell
+
+@property (nonatomic,strong)BSCoinModel * dataModel;
+
+@property (nonatomic,strong)NSString    * patton;
 
 @end

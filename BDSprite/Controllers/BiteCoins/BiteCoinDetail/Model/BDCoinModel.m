@@ -39,17 +39,17 @@
     BDCoinItemModel * item3 = [[BDCoinItemModel alloc] init];
     item3.noteTag = @"排名";
     item3.noteValue = @"1";
-    item3.patton = BDCoinFloorUniversal;
+    item3.patton = BDCoinFloorRank;
     
     BDCoinItemModel * item4 = [[BDCoinItemModel alloc] init];
     item4.noteTag = @"市值";
     item4.noteValue = @"1000，033，00";
-    item4.patton = BDCoinFloorUniversal;
+    item4.patton = BDCoinFloorVol;
     
     BDCoinItemModel * item5 = [[BDCoinItemModel alloc] init];
     item5.noteTag = @"流通量";
     item5.noteValue = @"1000，222，444";
-    item5.patton = BDCoinFloorUniversal;
+    item5.patton = BDCoinFloorCirculation;
     NSArray * array02 = @[item2,item3,item4,item5];
 
     
@@ -58,6 +58,7 @@
     item6.marketVolume = @"221,2332,22";
     item6.marketURL = @"https://coinmarketcap.com/currencies/ethereum/#markets";
     item6.patton = BDCoinFloorMaket;
+
     NSArray * array03 = @[item6];
 
     [self.listData addObject:array01];
@@ -65,4 +66,7 @@
     [self.listData addObject:array03];
 
 }
+
+MJCodingImplementation
+
 @end

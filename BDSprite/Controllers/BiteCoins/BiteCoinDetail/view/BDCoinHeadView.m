@@ -28,7 +28,7 @@
 
 - (void)setUI{
     [self addSubview:self.nameLabel];
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = [UIColor colorWithHexString:@"#EDEEED"];
 }
 
 - (void)fillTitle:(NSString *)title

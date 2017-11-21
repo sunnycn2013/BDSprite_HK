@@ -55,6 +55,10 @@
 //根据ip6的屏幕来拉伸
 #define kIPhone6PScale(with) ((with)*(KScreenWidth/414.0f))
 
+#define kStatusBarHeight ([UIApplication sharedApplication].statusBarFrame.size.height)
+#define kNavBarHeight 44
+#define kMarginTop kNavBarHeight + kStatusBarHeight
+
 //DEBUG  模式下打印日志,当前行
 #ifdef DEBUG
 #define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);

@@ -207,6 +207,11 @@
 		C37E87271F6106B800A23F24 /* libautotrack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C37E87241F6106B800A23F24 /* libautotrack.a */; };
 		C385401E1FAAE7CF003E7156 /* BDCoinHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = C385401D1FAAE7CF003E7156 /* BDCoinHeadView.m */; };
 		C39ED5CC1F76A1C700BA3478 /* socal.geojson in Resources */ = {isa = PBXBuildFile; fileRef = C39ED5CB1F76A1C700BA3478 /* socal.geojson */; };
+		C3A7D5231FBB20DE009204A8 /* BSCoinInfoBeanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A7D5221FBB20DE009204A8 /* BSCoinInfoBeanModel.m */; };
+		C3A7D5271FBB2BE2009204A8 /* BDCoinDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A7D5261FBB2BE2009204A8 /* BDCoinDetailViewModel.m */; };
+		C3A7D52B1FBB2E3E009204A8 /* BDCoinDetailAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A7D52A1FBB2E3E009204A8 /* BDCoinDetailAPI.m */; };
+		C3A7D5301FBB3A49009204A8 /* BSSearchAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A7D52F1FBB3A49009204A8 /* BSSearchAPI.m */; };
+		C3A7D5331FBB3A58009204A8 /* BSSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A7D5321FBB3A58009204A8 /* BSSearchViewModel.m */; };
 		C3A8B4FE1FA6E34600AD9610 /* BSWeiboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A8B4F11FA6E34600AD9610 /* BSWeiboViewController.m */; };
 		C3A8B4FF1FA6E34600AD9610 /* BSWeiBoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A8B4F41FA6E34600AD9610 /* BSWeiBoModel.m */; };
 		C3A8B5001FA6E34600AD9610 /* BSWeiBoAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A8B4F71FA6E34600AD9610 /* BSWeiBoAPI.m */; };
@@ -585,6 +590,17 @@
 		C385401D1FAAE7CF003E7156 /* BDCoinHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDCoinHeadView.m; sourceTree = "<group>"; };
 		C38C75CB1F62360200F6D5F9 /* BDSprite.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = BDSprite.entitlements; path = BDSprite/BDSprite.entitlements; sourceTree = SOURCE_ROOT; };
 		C39ED5CB1F76A1C700BA3478 /* socal.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = socal.geojson; sourceTree = "<group>"; };
+		C3A7D51E1FBB0B40009204A8 /* BDCoinDataProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDCoinDataProtocol.h; sourceTree = "<group>"; };
+		C3A7D5211FBB20DE009204A8 /* BSCoinInfoBeanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSCoinInfoBeanModel.h; sourceTree = "<group>"; };
+		C3A7D5221FBB20DE009204A8 /* BSCoinInfoBeanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSCoinInfoBeanModel.m; sourceTree = "<group>"; };
+		C3A7D5251FBB2BE2009204A8 /* BDCoinDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDCoinDetailViewModel.h; sourceTree = "<group>"; };
+		C3A7D5261FBB2BE2009204A8 /* BDCoinDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDCoinDetailViewModel.m; sourceTree = "<group>"; };
+		C3A7D5291FBB2E3E009204A8 /* BDCoinDetailAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDCoinDetailAPI.h; sourceTree = "<group>"; };
+		C3A7D52A1FBB2E3E009204A8 /* BDCoinDetailAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDCoinDetailAPI.m; sourceTree = "<group>"; };
+		C3A7D52E1FBB3A49009204A8 /* BSSearchAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSSearchAPI.h; sourceTree = "<group>"; };
+		C3A7D52F1FBB3A49009204A8 /* BSSearchAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSSearchAPI.m; sourceTree = "<group>"; };
+		C3A7D5311FBB3A58009204A8 /* BSSearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSSearchViewModel.h; sourceTree = "<group>"; };
+		C3A7D5321FBB3A58009204A8 /* BSSearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSSearchViewModel.m; sourceTree = "<group>"; };
 		C3A8B4F01FA6E34600AD9610 /* BSWeiboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSWeiboViewController.h; sourceTree = "<group>"; };
 		C3A8B4F11FA6E34600AD9610 /* BSWeiboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSWeiboViewController.m; sourceTree = "<group>"; };
 		C3A8B4F31FA6E34600AD9610 /* BSWeiBoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSWeiBoModel.h; sourceTree = "<group>"; };
@@ -1460,6 +1476,8 @@
 		C33FD9271FB7E6AA003C1A0D /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				C3A7D52D1FBB3A2C009204A8 /* API  */,
+				C3A7D52C1FBB3A19009204A8 /* ViewModel */,
 				C33FD9281FB7E6BF003C1A0D /* CMSearchViewController.h */,
 				C33FD9291FB7E6BF003C1A0D /* CMSearchViewController.m */,
 			);
@@ -1544,6 +1562,8 @@
 			children = (
 				C36ED71F1F58F01F00048BFC /* BSCoinModel.h */,
 				C36ED7201F58F01F00048BFC /* BSCoinModel.m */,
+				C3A7D5211FBB20DE009204A8 /* BSCoinInfoBeanModel.h */,
+				C3A7D5221FBB20DE009204A8 /* BSCoinInfoBeanModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1758,6 +1778,42 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		C3A7D5241FBB2BC2009204A8 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3A7D5251FBB2BE2009204A8 /* BDCoinDetailViewModel.h */,
+				C3A7D5261FBB2BE2009204A8 /* BDCoinDetailViewModel.m */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		C3A7D5281FBB2E05009204A8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C3A7D5291FBB2E3E009204A8 /* BDCoinDetailAPI.h */,
+				C3A7D52A1FBB2E3E009204A8 /* BDCoinDetailAPI.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		C3A7D52C1FBB3A19009204A8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3A7D5311FBB3A58009204A8 /* BSSearchViewModel.h */,
+				C3A7D5321FBB3A58009204A8 /* BSSearchViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3A7D52D1FBB3A2C009204A8 /* API  */ = {
+			isa = PBXGroup;
+			children = (
+				C3A7D52E1FBB3A49009204A8 /* BSSearchAPI.h */,
+				C3A7D52F1FBB3A49009204A8 /* BSSearchAPI.m */,
+			);
+			path = "API ";
+			sourceTree = "<group>";
+		};
 		C3A8B4EE1FA6E34600AD9610 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1821,6 +1877,8 @@
 			children = (
 				C319BC7E1FADBE8C005253F0 /* bd_favorite_normal@2x.png */,
 				C319BC781FADBCE2005253F0 /* bd_favorite_light@2x.png */,
+				C3A7D5281FBB2E05009204A8 /* API */,
+				C3A7D5241FBB2BC2009204A8 /* viewModel */,
 				C385401B1FAAE79B003E7156 /* view */,
 				C3A8B5291FA8B12C00AD9610 /* Cell */,
 				C3A8B51F1FA8A63600AD9610 /* Model */,
@@ -1852,6 +1910,7 @@
 				C3A8B52E1FA8B9F100AD9610 /* BDCoinDetailTemplateCell.m */,
 				C3A8B5301FA8BA0800AD9610 /* BDCoinDetailMarketCell.h */,
 				C3A8B5311FA8BA0800AD9610 /* BDCoinDetailMarketCell.m */,
+				C3A7D51E1FBB0B40009204A8 /* BDCoinDataProtocol.h */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2231,6 +2290,7 @@
 				5672CB541BC8EBC0007F4B9F /* TopicVoteView.m in Sources */,
 				C3A8B5221FA8A64900AD9610 /* BDCoinModel.m in Sources */,
 				C36ED6F41F57A5AE00048BFC /* UITableView+FDTemplateLayoutCell.m in Sources */,
+				C3A7D5301FBB3A49009204A8 /* BSSearchAPI.m in Sources */,
 				5679BAB91BD4855600AA9928 /* LaunchScreenAdView.m in Sources */,
 				5618687D1BBF618300E9E111 /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				C377454F1F7A81210081415A /* BSLocalCacheDefine.m in Sources */,
@@ -2277,6 +2337,7 @@
 				56437CA71BDE226500C6995F /* CommentListViewController.m in Sources */,
 				C36ED7271F58F17900048BFC /* BSCoinViewModel.m in Sources */,
 				C30A00BB1FB1EB6400CABAD5 /* BDMeModel.m in Sources */,
+				C3A7D5331FBB3A58009204A8 /* BSSearchViewModel.m in Sources */,
 				C33FD93C1FB7FC8D003C1A0D /* BDAboutViewController.m in Sources */,
 				5672CB411BC8A6E7007F4B9F /* CategoryApi.m in Sources */,
 				560E4C0A1BC1178900BD8CE2 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -2294,10 +2355,12 @@
 				C37745571F7B6C860081415A /* BSLocalPageViewController.m in Sources */,
 				560E4C091BC1178900BD8CE2 /* TPKeyboardAvoidingTableView.m in Sources */,
 				565218551BBB6D9500412E60 /* LoginViewController.m in Sources */,
+				C3A7D52B1FBB2E3E009204A8 /* BDCoinDetailAPI.m in Sources */,
 				C3A8B4FE1FA6E34600AD9610 /* BSWeiboViewController.m in Sources */,
 				56E945611BDF04F10008B02C /* BaseWebView.m in Sources */,
 				C3A8B5021FA6E34600AD9610 /* BSWeiBoViewModel.m in Sources */,
 				5679BAB21BD4815000AA9928 /* AdModel.m in Sources */,
+				C3A7D5231FBB20DE009204A8 /* BSCoinInfoBeanModel.m in Sources */,
 				5679BABF1BD4869F00AA9928 /* LaunchScreenAdHandler.m in Sources */,
 				B07E12B11F62113A0077BD5F /* BSShowMessageViewController.m in Sources */,
 				565218631BBBBDED00412E60 /* UserModel.m in Sources */,
@@ -2322,6 +2385,7 @@
 				56D8F0A81BB0F54300242FA9 /* UserEntity.m in Sources */,
 				56D8F0A21BB0ED5E00242FA9 /* TopicApi.m in Sources */,
 				C33155401FB81BCC00FD26CC /* UILabel+Size.m in Sources */,
+				C3A7D5271FBB2BE2009204A8 /* BDCoinDetailViewModel.m in Sources */,
 				565CE81F1BB29ED0001680D2 /* CategoryEntity.m in Sources */,
 				C36F21BC1F5BEE750003B7C5 /* BSTopicCell.m in Sources */,
 				C37745531F7A88270081415A /* BSCacheManager.m in Sources */,
@@ -2577,8 +2641,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BDSprite/BDSprite.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: xuzhao jia (PK6Q2M3TFF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xuzhao jia (PK6Q2M3TFF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xuzhao jia (8GA6Z7K7LR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xuzhao jia (8GA6Z7K7LR)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PK6Q2M3TFF;
 				ENABLE_BITCODE = NO;
@@ -2636,7 +2700,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bite.sprite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "42a544c1-6d50-4c60-b342-afc7239dbc9c";
+				PROVISIONING_PROFILE = "9bd64a41-af44-419d-8b19-01f3edaa1146";
 				PROVISIONING_PROFILE_SPECIFIER = com.bite.Sprite_Dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

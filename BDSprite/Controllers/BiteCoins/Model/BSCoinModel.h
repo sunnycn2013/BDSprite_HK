@@ -7,14 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface BSCoininfoBean : NSObject
-@property (nonatomic,strong) NSNumber * coinID;
-@property (nonatomic,strong) NSString * imageurl;
-@property (nonatomic,strong) NSString * symbol;
-@end
+#import "BSCoinInfoBeanModel.h"
 
 @interface BSCoinModel : NSObject
+
 @property (nonatomic,strong) NSString * chinesename;
 @property (nonatomic,strong) NSString * englishname;
 @property (nonatomic,strong) NSNumber * market_type;
@@ -24,11 +20,18 @@
 @property (nonatomic,strong) NSString * platform;
 @property (nonatomic,strong) NSNumber * turnnumber;
 @property (nonatomic,strong) NSNumber * turnvolume;
-@property (nonatomic,strong) BSCoininfoBean * infoBean;
+@property (nonatomic,strong) BSCoinInfoBeanModel * infoBean;
 @property (nonatomic,strong) NSString * url;
 
-@property (nonatomic,strong) NSString * coin_id;
+@property (nonatomic,strong) NSNumber * rank;
 
+#pragma mark - siteinfo?id=bitcoin
+@property (nonatomic,strong) NSString * marketSymbol;
+@property (nonatomic,strong) NSString * symbol;
+@property (nonatomic,strong) NSNumber * update_time;
+@property (nonatomic,strong) NSString * typeStr;
+
+@property (nonatomic,strong) NSString * coin_id;
 @property (nonatomic,strong) NSString * timeStr;
 @property (nonatomic,strong) NSString * percentStr;
 @property (nonatomic,strong) NSString * jumpURL;

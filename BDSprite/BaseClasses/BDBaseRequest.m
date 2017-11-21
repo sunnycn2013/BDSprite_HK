@@ -43,7 +43,7 @@
         self.request.responseSerializer =  [AFHTTPResponseSerializer serializer];
         self.request.securityPolicy = [AFSecurityPolicy defaultPolicy];
         self.request.securityPolicy.validatesDomainName = YES;
-        self.request.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json", @"text/javascript",nil];//设置相应内容类型
+        self.request.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json", @"text/javascript",@"text/plain",nil];//设置相应内容类型
     }
     return self;
 }

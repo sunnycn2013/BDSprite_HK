@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const BDCoinFloorHeader;
-extern NSString * const BDCoinFloorInfo;
+extern NSString * BDCoinFloorHeader;
+extern NSString * BDCoinFloorInfo;
+extern NSString * BDCoinFloorUniversal;
+extern NSString * BDCoinFloorMaket;
 
-extern NSString * const BDCoinFloorUniversal;
-extern NSString * const BDCoinFloorMaket;
+extern NSString * BDCoinFloorRank;
+extern NSString * BDCoinFloorVol;
+extern NSString * BDCoinFloorCirculation;
 
 @interface BDCoinItemModel : NSObject
 
@@ -33,6 +36,16 @@ extern NSString * const BDCoinFloorMaket;
 
 @property (nonatomic,strong) NSString * noteTag;
 @property (nonatomic,strong) NSString * noteValue;
+
+#pragma mark - siteinfo?id=bitcoin
+@property (nonatomic,strong) NSString * marketSymbol;
+@property (nonatomic,strong) NSString * platform;
+@property (nonatomic,strong) NSString * symbol;
+@property (nonatomic,strong) NSString * turnnumber;
+@property (nonatomic,strong) NSString * turnvolume;
+@property (nonatomic,strong) NSNumber * update_time;
+@property (nonatomic,strong) NSString * typeStr;
+@property (nonatomic,strong) NSString * url;
 
 @property (nonatomic,strong) NSString * patton;
 

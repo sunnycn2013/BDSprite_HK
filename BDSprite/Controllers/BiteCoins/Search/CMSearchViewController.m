@@ -9,10 +9,16 @@
 #import "CMSearchViewController.h"
 #import "BSCoinCell.h"
 #import "UMengSocialHandler.h"
+#import "BSSearchViewModel.h"
+#import "BDCoinDetailViewController.h"
 
-@interface CMSearchViewController ()
+@interface CMSearchViewController ()<UISearchBarDelegate>
+
+@property (nonatomic,strong)UISearchBar * searchBar;
 
 @property (nonatomic,strong) NSArray * data;
+
+@property (nonatomic,strong)BSSearchViewModel * searchViewModel;
 
 @end
 
@@ -22,26 +28,12 @@
     [super viewDidLoad];
     self.title = @"币结果";
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    self.tableView.mj_header = self.refreashHeader;
+//    [self.navigationController.navigationBar addSubview:self.searchBar];
+//    [self.view addSubview:self.searchBar];
+    self.tableView.tableHeaderView = self.searchBar;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[BSCoinCell class] forCellReuseIdentifier:@"BSCoinCell"];
     [self.view addSubview:self.tableView];
-
-    UIButton * rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightButton setImage:[UIImage imageNamed:@"bd_share"] forState:UIControlStateNormal];
-    [rightButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem * rightBar = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    [self.navigationItem setRightBarButtonItem:rightBar];
-}
-
-- (void)shareAction:(UIBarButtonItem *)sender
-{
-    NSString * url = @"www.icaibei.com";
-    NSString * title = @"币动精灵";
-    NSString * text = @"币动精灵";
-    
-    [UMengSocialHandler shareWithShareURL:url shareImageUrl:nil shareTitle:title shareText:text presentVC:self delegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +41,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)fetchDataWithKeyWord:(NSString *)keyWord
+{
+    if (!keyWord || !(keyWord.length>0)) {
+        return;
+    }
+    __weak typeof(self) weakSelf = self;
+    NSDictionary * params = @{@"pattern" : keyWord,
+                              @"symbol" : @"CNY"
+                              };
+    //pattern=比特&symbol=CNY
+    [self.searchViewModel fetchCoinInfo:params completionHandler:^(id data, NSError *error) {
+        [weakSelf.tableView.mj_footer endRefreshing];
+        if (!error)
+        {
+            weakSelf.tableView.hidden = NO;
+            [weakSelf.tableView reloadData];
+        }
+    }];
+}
+        
 #pragma mark - UITableViewDataSource,UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -57,14 +69,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.data count];
+    return [self.searchViewModel.coins count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString * cellIdentifier = @"BSCoinCell";
     BSCoinCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    BSCoinModel * model = [self.data objectAtIndex:indexPath.row];
+    BSCoinModel * model = [self.searchViewModel.coins objectAtIndex:indexPath.row];
     cell.coinInfo = model;
     return cell;
 }
@@ -75,9 +87,55 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    BDCoinDetailViewController * detail = [[BDCoinDetailViewController alloc] init];
-//    detail.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:detail animated:YES];
+    BSCoinModel * model = [self.searchViewModel.coins objectAtIndex:indexPath.row];
+    BDCoinDetailViewController * detail = [[BDCoinDetailViewController alloc] initWithModel:model];
+    detail.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detail animated:YES];
+}
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    self.searchBar.showsCancelButton = YES;
+    return YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchBar endEditing:YES];
+    self.searchBar.showsCancelButton = NO;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString * keyWord = self.searchBar.text;
+    [self fetchDataWithKeyWord:keyWord];
+    __weak typeof(self) weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf.searchBar endEditing:YES];
+        weakSelf.searchBar.showsCancelButton = NO;
+    });
+}
+
+#pragma mark - set get
+- (BSSearchViewModel *)searchViewModel
+{
+    if (!_searchViewModel) {
+        _searchViewModel = [[BSSearchViewModel alloc] init];
+    }
+    return _searchViewModel;
+}
+
+- (UISearchBar *)searchBar
+{
+    if (!_searchBar) {
+        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, kMarginTop, KScreenWidth, 44)];
+        _searchBar.delegate = self;
+        _searchBar.placeholder = @"输入币名搜索";
+        _searchBar.showsCancelButton = YES;
+        _searchBar.showsScopeBar = YES;
+        _searchBar.backgroundColor = [UIColor colorWithHexString:@"#F6F6F6"];
+    }
+    return _searchBar;
 }
 
 @end

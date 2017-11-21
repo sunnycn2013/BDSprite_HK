@@ -8,6 +8,8 @@
 
 #import "BDSpriteContext.h"
 
+NSString * BDGlobalThemeChangedNotification = @"ThemeChangedNotification";
+
 @implementation BDSpriteContext
 
 + (instancetype)sharedInstance
@@ -27,5 +29,10 @@
         _isDesRed = YES;
     }
     return self;
+}
+
+- (void)setIsDesRed:(BOOL)isDesRed
+{
+    _isDesRed = isDesRed;
 }
 @end

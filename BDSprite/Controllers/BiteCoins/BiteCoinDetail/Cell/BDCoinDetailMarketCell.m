@@ -7,6 +7,7 @@
 //
 
 #import "BDCoinDetailMarketCell.h"
+#import "BDCoinItemModel.h"
 
 @interface BDCoinDetailMarketCell ()
 
@@ -15,6 +16,7 @@
 @property (nonatomic,strong)UILabel * marketVolTagLabel;
 @property (nonatomic,strong)UILabel * platformURLLabel;
 @property (nonatomic,strong)UILabel * marketVolLabel;
+@property (nonatomic,strong)CALayer *lineLayer;
 
 @end
 
@@ -24,6 +26,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self setUI];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -35,6 +38,7 @@
     [self addSubview:self.marketVolTagLabel];
     [self addSubview:self.platformURLLabel];
     [self addSubview:self.marketVolLabel];
+    [self.layer addSublayer:self.lineLayer];
 }
 
 - (void)awakeFromNib {
@@ -46,6 +50,23 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.lineLayer.frame = CGRectMake(0, self.height-1,KScreenWidth, 0.5);
+}
+
+- (void)setDataModel:(BSCoinModel *)dataModel
+{
+    if (![dataModel isKindOfClass:[BDCoinItemModel class]]) {
+        return;
+    }
+    BDCoinItemModel * model = (BDCoinItemModel *)dataModel;
+    _marketNameLabel.text = model.marketSymbol;
+    _marketVolTagLabel.text = model.turnvolume;
+    _platformURLLabel.text = model.url;
 }
 
 - (UIImageView *)marketImageView
@@ -106,4 +127,13 @@
     return _marketVolLabel;
 }
 
+- (CALayer *)lineLayer
+{
+    if (!_lineLayer) {
+        _lineLayer = [[CALayer alloc] init];
+        _lineLayer.frame = CGRectMake(0, self.height-1,KScreenWidth, 0.5);
+        _lineLayer.backgroundColor = [UIColor colorWithHexString:@"#E8E8E8"].CGColor;
+    }
+    return _lineLayer;
+}
 @end

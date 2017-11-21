@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * BDGlobalThemeChangedNotification;
+
 @interface BDSpriteContext : NSObject
 
 @property (nonatomic,assign)BOOL isDesRed;

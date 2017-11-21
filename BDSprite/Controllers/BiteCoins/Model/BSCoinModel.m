@@ -8,19 +8,6 @@
 
 #import "BSCoinModel.h"
 
-@implementation BSCoininfoBean
-
-+ (NSDictionary *)mj_replacedKeyFromPropertyName
-{
-    return @{
-             @"coinID" : @"id",
-             @"time" : @"update_time"
-             };
-}
-
-MJCodingImplementation
-@end
-
 @implementation BSCoinModel
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName
