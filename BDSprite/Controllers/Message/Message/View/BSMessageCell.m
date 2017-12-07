@@ -1,14 +1,14 @@
 //
-//  BSWeiBoCell.m
+//  BSMessageCell.m
 //  BDSprite
 //
-//  Created by alibaba on 2017/9/1.
+//  Created by ccguo on 2017/12/7.
 //  Copyright © 2017年 ESTGroup. All rights reserved.
 //
 
-#import "BSWeiBoCell.h"
+#import "BSMessageCell.h"
 
-@interface BSWeiBoCell ()
+@interface BSMessageCell ()
 
 @property (nonatomic,strong)UIImageView * avatorImageView;
 @property (nonatomic,strong)UILabel * authorLabel;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation BSWeiBoCell
+@implementation BSMessageCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -35,22 +35,37 @@
     [self.contentView addSubview:self.authorLabel];
     [self.contentView addSubview:self.weiBoTitleLabel];
     [self.contentView addSubview:self.sendTimeLabel];
+    self.contentView.clipsToBounds = YES;
 }
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.avatorImageView.frame = CGRectMake(10, 8, kIPhone6PScale(53), kIPhone6PScale(53));
+    CGFloat height = 0.0;
+    CGFloat width = KScreenWidth - kIPhone6PScale(10);
+    CGSize size = [_weibo.text sizeForFont:[UIFont systemFontOfSize:12] size:CGSizeMake(width, 200) mode:NSLineBreakByWordWrapping];
+    height = size.height;
+    if (height > 300) {
+        height = 300;
+    }
+    
+    height = (height < 70) ? 70:height;
+
+    self.avatorImageView.frame = CGRectMake(10, 8, kIPhone6PScale(20), kIPhone6PScale(20));
     self.authorLabel.frame = CGRectMake(_avatorImageView.right+5, 10, kIPhone6PScale(285), kIPhone6PScale(25));
-    self.weiBoTitleLabel.frame = CGRectMake(_authorLabel.left, _authorLabel.bottom, kIPhone6PScale(285), kIPhone6PScale(21));
+    self.weiBoTitleLabel.frame = CGRectMake(_authorLabel.left, _authorLabel.bottom, width,height-50);
     self.sendTimeLabel.frame = CGRectMake(_weiBoTitleLabel.right+kIPhone6PScale(10), 14, kIPhone6PScale(43), kIPhone6PScale(18));
 }
 
@@ -59,16 +74,39 @@
     _weibo = weibo;
     [self.avatorImageView setImageURL:[NSURL URLWithString:_weibo.imageurl]];
     self.authorLabel.text = weibo.wbname;
-    self.weiBoTitleLabel.text = weibo.text;
     self.sendTimeLabel.text = weibo.updateTimeStr;
+
+    if (weibo.text.length > 0) {
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithData:[weibo.text dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineSpacing:2.0];
+        [attrStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attrStr length])];
+        
+        self.weiBoTitleLabel.attributedText = attrStr;
+        [self.weiBoTitleLabel sizeToFit];
+    }
+
+}
+
++ (CGFloat)calculateCellHeightWithModel:(BSWeiBoModel *)model
+{
+    CGFloat height = 0.0;
+    CGFloat width = KScreenWidth - kIPhone6PScale(10);
+    CGSize size = [model.text sizeForFont:[UIFont systemFontOfSize:12] size:CGSizeMake(width, 200) mode:NSLineBreakByWordWrapping];
+    height = size.height;
+    if (height > 300) {
+        height = 300;
+    }
+    
+    return (height < 70) ? 70:height;
 }
 
 #pragma mark - set get
 - (UIImageView *)avatorImageView
 {
     if (!_avatorImageView) {
-        _avatorImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 8, kIPhone6PScale(53), kIPhone6PScale(53))];
-        _avatorImageView.layer.cornerRadius = kIPhone6PScale(53)/2;
+        _avatorImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 8, kIPhone6PScale(20), kIPhone6PScale(20))];
+        _avatorImageView.layer.cornerRadius = kIPhone6PScale(20)/2;
         _avatorImageView.layer.masksToBounds = YES;
         _avatorImageView.image = [UIImage imageNamed:@"anonymous_logo"];
     }
@@ -89,10 +127,11 @@
 - (UILabel *)weiBoTitleLabel
 {
     if (!_weiBoTitleLabel) {
-        CGFloat width = KScreenWidth - kIPhone6PScale(80+10);
+        CGFloat width = KScreenWidth - kIPhone6PScale(10);
         _weiBoTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(_avatorImageView.right +5 , 5,width , kIPhone6PScale(25))];
         _weiBoTitleLabel.font = [UIFont systemFontOfSize:12];
         _weiBoTitleLabel.textColor = [UIColor lightGrayColor];
+        _weiBoTitleLabel.numberOfLines = 0;
     }
     return _weiBoTitleLabel;
 }
@@ -108,5 +147,4 @@
     }
     return _sendTimeLabel;
 }
-
 @end

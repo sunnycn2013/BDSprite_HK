@@ -8,6 +8,7 @@
 
 #import "BSWeiboViewController.h"
 #import "BSWeiBoCell.h"
+#import "BSMessageCell.h"
 #import "BSWeiBoViewModel.h"
 #import "BSWeiBoModel.h"
 #import "UITableView+FDTemplateLayoutCell.h"
@@ -26,12 +27,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"消息";
+    self.navigationItem.title = @"早知道";
     self.pageIndex = 1;
     self.loading = NO;
     self.tableView.mj_header = self.refreashHeader;
     self.tableView.mj_footer = self.refreashFooter;
-    [self.tableView registerClass:[BSWeiBoCell class] forCellReuseIdentifier:@"BSWeiBoCell"];
+    [self.tableView registerClass:[BSMessageCell class] forCellReuseIdentifier:@"BSMessageCell"];
     [self.view addSubview:self.tableView];
     [self fetchFirstPageDataSource];
 }
@@ -101,7 +102,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * cellIdentifier = @"BSWeiBoCell";
+    static NSString * cellIdentifier = @"BSMessageCell";
     BSWeiBoCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     BSWeiBoModel * model = [self.weiboViewModel.weibos objectAtIndex:indexPath.row];
     cell.weibo = model;
@@ -109,21 +110,16 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kIPhone6PScale(70);
+    BSWeiBoModel * model = [self.weiboViewModel.weibos objectAtIndex:indexPath.row];
+    return [BSMessageCell calculateCellHeightWithModel:model];
+//    return kIPhone6PScale(170);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BSWeiBoModel * model = [self.weiboViewModel.weibos objectAtIndex:indexPath.row];
-    NSString * url = [NSString stringWithFormat:@"https://m.weibo.cn/status/%@",model.wbid];
-    [JumpToOtherVCHandler jumpToWebVCWithUrlString:url];
-//    NSDictionary * params = @{
-//                              @"title" : model.wbname ? : @"",
-//                              @"text" : model.text ? : @"",
-//                              @"url" : url
-//                              };
-//    BDMessageDetailViewController * viewController = [[BDMessageDetailViewController alloc] initWithParams:params];
-//    [self.navigationController pushViewController:viewController animated:YES];
+//    BSWeiBoModel * model = [self.weiboViewModel.weibos objectAtIndex:indexPath.row];
+//    NSString * url = [NSString stringWithFormat:@"https://m.weibo.cn/status/%@",model.wbid];
+//    [JumpToOtherVCHandler jumpToWebVCWithUrlString:url];
 }
 
 #pragma mark - set get
