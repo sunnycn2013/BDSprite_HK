@@ -28,6 +28,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.title = @"早知道";
+    self.view.backgroundColor = [UIColor whiteColor];
     self.pageIndex = 1;
     self.loading = NO;
     self.tableView.mj_header = self.refreashHeader;
